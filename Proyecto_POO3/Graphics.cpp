@@ -82,7 +82,7 @@ bool Graphics::Init()
 				return false;
 			}
 
-			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
 
 			int flags = IMG_INIT_PNG;	//"Bandera" que nos permite determinar si se cargan imágenes o no
 			//If que pregunta si se logró cargar el programa de SDL_Image
@@ -91,11 +91,13 @@ bool Graphics::Init()
 				printf("IMG initialization ERROR: %s\n", IMG_GetError());
 				return false;
 			}
+
+			
 			if(TTF_Init() == -1)
 			{
 				printf("TTF ERROR: %s\n", TTF_GetError());
-				return false;
 			}
+
 			surface = SDL_GetWindowSurface(mainWindow);
 		}
 

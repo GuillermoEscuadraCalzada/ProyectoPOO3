@@ -25,6 +25,13 @@ public:
 	void Render();
 	bool Init();
 
+	SDL_Renderer* getRender()
+	{
+		return renderer;
+	}
+
+
+
 private:
 	static Graphics* ptr;
 	static bool initialize;

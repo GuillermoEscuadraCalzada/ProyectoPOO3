@@ -13,8 +13,7 @@ GameManager::GameManager()
 		quit = true;
 
 	assetM = AssetManager::getPTR();
-
-	texture = new Texture("Fondo.png");
+	//texture = new Texture("Fondo.png");
 }
 
 /*Constructor principal del juego*/
@@ -27,6 +26,10 @@ GameManager::~GameManager()
 	texture = nullptr;
 	AssetManager::Close();
 	assetM = nullptr;
+
+	delete menuInicio;
+	menuInicio = nullptr;
+
 }
 
 
@@ -37,29 +40,38 @@ GameManager* GameManager::Initialize()
 	//Si el apuntador es nulo, crea la función, si no, no hagas nada. no se puede volver a crear
 	if(ptr == nullptr)
 		ptr = new GameManager();
-
 	return ptr;	//Regresa el apuntador
 }
 
 /*Update es la función del loop principal del juego*/
 void GameManager::Update()
 {
+	menuInicio = new MenuInicio();
+	menuInicio->Update();
+	menuInicio->Render();
+
 	while(!quit)
 	{
 		//Manda a llamar el sistema de eventos de SDL
-		while(SDL_PollEvent(&eventHandler) != 0)
+		while(SDL_PollEvent(&eventHandler) != 0 )
 		{
-			if(eventHandler.type == SDL_QUIT)	//Si se termina el programa, termina el loop
+			if(eventHandler.type == SDL_QUIT || eventHandler.key.keysym.sym == SDLK_ESCAPE)	//Si se termina el programa, termina el loop
 				quit = true;
 		}
 
-		graphics->ClearBackBuffer();
-
-		texture->Render();
-
-		graphics->Render();	//Actualiza constantemente el render del juego
-
+		//Render();
+		
 	}
+}
+
+void GameManager::Render()
+{
+	graphics->ClearBackBuffer();
+	
+	//texture->Render();
+
+	graphics->Render();	//Actualiza constantemente el render del juego
+
 }
 
 //Función que cierra esta clase y elimina todos los elementos del juego

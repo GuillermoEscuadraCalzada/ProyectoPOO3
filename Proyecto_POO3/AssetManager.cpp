@@ -48,12 +48,3 @@ SDL_Texture* AssetManager::GetTexture(std::string fileName)
 	
 }
 
-Mix_Music* AssetManager::GetMusic(string fileName)
-{
-	return nullptr;
-}
-
-Mix_Chunk* AssetManager::GetSFX(string fileName)
-{
-	return nullptr;
-}
