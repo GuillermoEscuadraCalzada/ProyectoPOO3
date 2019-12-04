@@ -2,6 +2,8 @@
 
 int MenuInicio::showMenu(SDL_Surface* screen, TTF_Font* font)
 {
+	SDL_Color color = { 255, 255, 255 };
+	
 	int x, y;
 
 	const int numMenu = 2;
@@ -9,14 +11,14 @@ int MenuInicio::showMenu(SDL_Surface* screen, TTF_Font* font)
 
 	SDL_Surface* menus[numMenu];	//Arreglo de elementos en el menu
 	bool selected[numMenu] = { 0,0 };	//Ambos elementos del arreglo son falose
-	SDL_Color color[2] = 
+	SDL_Color colour[2] = 
 	{ 
 		{255,255,255}, 
 		{255,0,0}
 	};	//Color del texto al estar seleccionados/no seleccionados
 
-	menus[0] = TTF_RenderText_Solid(font, labels[0], color[0]);
-	menus[1] = TTF_RenderText_Solid(font, labels[1], color[0]);
+	menus[0] = TTF_RenderText_Solid(font, labels[0], colour[0]);
+	menus[1] = TTF_RenderText_Solid(font, labels[1], colour[0]);
 
 	SDL_Rect pos[numMenu];
 
@@ -58,7 +60,7 @@ int MenuInicio::showMenu(SDL_Surface* screen, TTF_Font* font)
 						{
 							selected[i] = 1;	//Se vuelve verdadero este elemento
 							SDL_FreeSurface(menus[i]);	//Libera el estado anterior
-							menus[i] = TTF_RenderText_Solid(font, labels[i], color[1]);	//Cambia su color
+							menus[i] = TTF_RenderText_Solid(font, labels[i], colour[1]);	//Cambia su color
 						}
 					}
 					else
@@ -68,7 +70,7 @@ int MenuInicio::showMenu(SDL_Surface* screen, TTF_Font* font)
 						{
 							selected[i] = 0;	//Se hace falso
 							SDL_FreeSurface(menus[i]);	//Libera su estado anterior
-							menus[i] = TTF_RenderText_Solid(font, labels[i], color[0]);	//Lo cambia a blanco
+							menus[i] = TTF_RenderText_Solid(font, labels[i], colour[0]);	//Lo cambia a blanco
 						}
 					}
 				}

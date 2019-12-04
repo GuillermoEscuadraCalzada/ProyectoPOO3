@@ -2,7 +2,19 @@
 #include <string>
 #include <SDL.h>
 #include "MenuInicio.h"
+#include "GameManager.h"
+#include "Vector.h"
+#include "AssetManager.h"
+
+/*
+	Grid 8x8 Tamaño del mapa
+	Implementar Música
+	Implementar imágenes
+	
+*/
+
 using std::cout; using std::endl; using std::string;
+
 bool Initialize(); void Draw(); void Update(); void close(); //Frees media and shuts down SDL
 
 int screenWidth = 900;
@@ -20,24 +32,29 @@ SDL_Color color = { 255, 255, 255 };
 SDL_Surface* surface;
 SDL_Texture* texture;
 
+
 int main(int argc, char* args[])
 {
-	//int i = menus.showMenu(screen, font, screenWidth, screenHeight);
+	////int i = menus.showMenu(screen, font, screenWidth, screenHeight);
+	////Si no se inicializa, imprime lo siguiente
+	//if(!Initialize())
+	//	printf("Failed to initialize!\n");
+	//////Por otro lado, quit es falso;
+	//else
+	//	quit = false; //Main loop flag
+	////Manda a llamar la función Update en caso de que sí logre iniciar el programa
+	//Update();
+	/////Al finalizar el update, manda a llamar la función close
+	//close();
 
-	//Si no se inicializa, imprime lo siguiente
-	if(!Initialize())
-		printf("Failed to initialize!\n");
-	////Por otro lado, quit es falso;
-	else
-		quit = false; //Main loop flag
-	font = TTF_OpenFont("Assets/Fonts/arial.ttf", 32);
+	GameManager* game = GameManager::Initialize();
+	game->Update();
 
-	//Manda a llamar la función Update en caso de que sí logre iniciar el programa
-	Update();
-
-	////Al finalizar el update, manda a llamar la función close
-	close();
-
+	GameManager::Close();
+	game = nullptr;
+	
+	//myVector.push_back("Assets/Textures/Fondo.png", texture);
+	//myVector.print();
 
 	return 0;
 }
@@ -102,16 +119,18 @@ void Draw()
 	SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(gRenderer); //Clear screen
 
+	font = TTF_OpenFont("Assets/Fonts/arial.ttf", 32);
 
 	if(!font)
 	{
 		printf("No se cargo bien tu font\n");
-	} else
+	} 
+	else
 	{
-		surface = TTF_RenderText_Solid(font, "GG boys", color);
+		surface = TTF_RenderText_Solid(font, "Match 4 clone", color);
 		texture = SDL_CreateTextureFromSurface(gRenderer, surface);
 		SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-		SDL_Rect dstrect = { 0, 0, texW, texH };
+		SDL_Rect dstrect = { screenWidth/2 - surface->clip_rect.w/2, screenHeight/2 - surface->clip_rect.h/2 , texW, texH };
 		SDL_RenderCopy(gRenderer, texture, NULL, &dstrect);
 	}
 		SDL_RenderPresent(gRenderer); //Update screen
@@ -122,9 +141,6 @@ void Draw()
 void Update()
 {
 	SDL_Event eventHandler; 	//Event handler
-
-
-
 	while(!quit)
 	{ //While application is running
 
