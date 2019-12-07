@@ -15,22 +15,28 @@ Texture::Texture(std::string path, int x, int y)
 	
 }
 
+/*Constructor de la clase texture que sirve para texturas animadas con imágenes que tienen más de un elemnto. Esto nos permite avanzar entre cada una para poder cambiar la textura actual
+	@param[path] dirección de la textura dentro del archivo debug del juego
+	@param[x] posición en la imagen en X donde comienza la animación
+	@param[y] posición de la imagen en Y donde comienza la animación
+	@param[w} anchura del segmento de la imagen
+	@param[h] altura del segmento d ela imagen*/
 Texture::Texture(std::string path, int x, int y, int w, int h)
 {
-	graphics = Graphics::returnPTR();
-	texture = AssetManager::getPTR()->GetTexture(path);
-	this->path = path;
-	clipped = true;
+	graphics = Graphics::returnPTR();	//Pregunta por el apuntador de la clase Graphics
+	texture = AssetManager::getPTR()->GetTexture(path);	//Pregunta por el apuntador de la classe assetManager y luego busca la función de GetTexture
+	this->path = path;	//Path se igual al path del argumento
+	clipped = true;	//Clipp es true
 
-	width = w;
-	height = h;
-	rect.w = width;
-	rect.h = height;
+	width = w;	//width es igual a la w del argumento
+	height = h;	//Height es igual a la h del argumento
+	rect.w = width;	//La anchura de rect es igual a width
+	rect.h = height;	//La altrua de rect es igual a height
 
-	clippedRect.x = x;
-	clippedRect.y = y;
-	clippedRect.w = w;
-	clippedRect.h = h;
+	clippedRect.x = x;	//La posición de clippRect en X es igual a x
+	clippedRect.y = y;	//La posición de clippRect en Y es igual a y
+	clippedRect.w = w;	//La anchura de clippedRect es igual a la w del parámetro
+	clippedRect.h = h;	//La altura de clippedRect es igual a la h del parámetro
 
 
 
@@ -40,7 +46,7 @@ Texture::Texture(std::string path, int x, int y, int w, int h)
 	@param[text] el text que queremos que se imprima en la pantalla
 	@param[fontPath] ubicación del font dentro del archivo del juego
 	@param[size] tamaño de las letras del texto.
-	@param[ color ] color de las palabras*/
+	@param[ color ] color de las palabras*/ 
 Texture::Texture(std::string text, std::string fontPath, int size, SDL_Color color)
 {
 	graphics = Graphics::returnPTR();	//Llama el apuntador de graphics
@@ -60,25 +66,6 @@ Texture::~Texture()
 	graphics = nullptr;
 }
 
-int Texture::GetWidth()
-{
-	return rect.w;
-}
-
-int Texture::GetHeight()
-{
-	return rect.h;
-}
-
-float Texture::GetX()
-{
-	return rect.x;
-}
-
-float Texture::GetY()
-{
-	return rect.y;
-}
 
 void Texture::Render()
 {

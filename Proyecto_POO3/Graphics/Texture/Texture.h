@@ -22,10 +22,7 @@ public:
 
 	std::string GetPath();
 	void setPos(float x, float y);
-	int GetWidth();
-	int GetHeight();
-	float GetX();
-	float GetY();
+
 
 	virtual void Render();
 };

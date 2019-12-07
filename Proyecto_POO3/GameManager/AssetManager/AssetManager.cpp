@@ -17,18 +17,23 @@ AssetManager::~AssetManager()
 	//Avanza hasta que sea nulo
 	while(ffont != nullptr)
 	{
+		AssetNode<TTF_Font*>* temp = ffont->next;
 		TTF_CloseFont(ffont->val);	//Se cierra el font
-		ffont = ffont->next;	//Avanza a su siguiente puesto en el vector
+		delete ffont;
+		ffont= nullptr;
+		ffont = temp;	//Avanza a su siguiente puesto en el vector
 	}
 
 	//Ir buscando en el vector de texturas
 	AssetNode<SDL_Texture*>* textureIt = textures.first;
-	
 	//Avanzar hasta que sea nulo
 	while(textureIt != nullptr)
 	{
+		AssetNode<SDL_Texture*>* temp = textureIt->next;
 		SDL_DestroyTexture(textureIt->val);	//Destruir la textura
-		textureIt = textureIt->next;	//Avanzar al siguiente
+		delete textureIt;
+		textureIt = nullptr;
+		textureIt = temp;	//Avanzar al siguiente
 	}
 
 	//Ir buscando en el vector de textos
@@ -37,10 +42,36 @@ AssetManager::~AssetManager()
 	//Avanza hasta que sea nulo
 	while(textIt != nullptr)
 	{
+		AssetNode<SDL_Texture*>* temp = textIt->next;
+
 		SDL_DestroyTexture(textIt->val);	//Destruye las texturas
-		textIt = textIt->next;	//Avanza al siguiente
+		delete textIt;
+		textIt = nullptr;
+		textIt = temp;
+
 	}
-	//textures.freeMemory();
+
+	AssetNode<Mix_Music*>* musicIt = music.first;
+	while(musicIt != nullptr)
+	{
+		AssetNode<Mix_Music*>* temp = musicIt->next;
+
+		Mix_FreeMusic(musicIt->val);
+		delete musicIt;
+		musicIt = nullptr;
+		musicIt = temp;
+	}
+
+	AssetNode<Mix_Chunk*>* chunkIt = sfx.first;
+	while(musicIt != nullptr)
+	{
+		AssetNode<Mix_Chunk*>* temp = chunkIt->next;
+
+		Mix_FreeChunk(chunkIt->val);
+		delete chunkIt;
+		chunkIt = nullptr;
+		chunkIt = temp;
+	}
 	
 }
 

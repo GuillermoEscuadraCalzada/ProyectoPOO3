@@ -64,14 +64,11 @@
     <Filter Include="Header Files\GameManager\InputManager">
       <UniqueIdentifier>{f1e77bf1-8674-42cd-88c7-e172bc60a283}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameManager\AudioManager\GameObjects">
-      <UniqueIdentifier>{f0df82e9-c825-427f-b6f5-9f589dee4f98}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GameManager\AudioManager\GameObjects\Vector2">
-      <UniqueIdentifier>{71fc6984-442f-41db-b79e-1a970a4b5be9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GameManager\AudioManager\GameObjects\Game Object">
+    <Filter Include="Header Files\Game Object">
       <UniqueIdentifier>{7caa601f-49e2-47e6-b406-268ff3aa2491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Object\Vector2">
+      <UniqueIdentifier>{71fc6984-442f-41db-b79e-1a970a4b5be9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +88,7 @@
       <Filter>Header Files\GameManager\GameManager</Filter>
     </ClCompile>
     <ClCompile Include="GameObject\GameObject.cpp">
-      <Filter>Header Files\GameManager\AudioManager\GameObjects\Game Object</Filter>
+      <Filter>Header Files\Game Object</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\AnimatedTextures\AnimatedTexture.cpp">
       <Filter>Header Files\Graphics\AnimatedTexture</Filter>
@@ -129,10 +126,10 @@
       <Filter>Header Files\GameManager\GameManager</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\GameObject.h">
-      <Filter>Header Files\GameManager\AudioManager\GameObjects\Game Object</Filter>
+      <Filter>Header Files\Game Object</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Vector2.h">
-      <Filter>Header Files\GameManager\AudioManager\GameObjects\Vector2</Filter>
+      <Filter>Header Files\Game Object\Vector2</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h">
       <Filter>Header Files\Graphics\AnimatedTexture</Filter>

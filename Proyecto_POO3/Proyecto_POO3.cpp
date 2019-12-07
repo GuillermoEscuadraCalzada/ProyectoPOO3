@@ -24,7 +24,8 @@ int main(int argc, char* args[])
 	//close();
 
 	GameManager* game = GameManager::Initialize();
-	game->Update();
+
+	game->MainUpdate();
 	GameManager::Close();
 	game = nullptr;
 

@@ -16,7 +16,10 @@ public:
 	static GameManager* Initialize();
 	static void Close();
 
+	void EarlyUpdate();
 	void Update();
+	void MainUpdate();
+	void LateUpdate();
 	void Render();
 	Texture* backGround; 
 	int GetWidth()
