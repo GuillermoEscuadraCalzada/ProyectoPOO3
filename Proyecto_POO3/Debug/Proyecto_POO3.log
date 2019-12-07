@@ -1,2 +1,4 @@
-﻿  MenuInicio.cpp
+﻿  AnimatedTexture.cpp
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphics\Texture\Texture.h(35,11): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphics\Texture\Texture.h(36,11): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Proyecto_POO3.vcxproj -> C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Debug\Proyecto_POO3.exe

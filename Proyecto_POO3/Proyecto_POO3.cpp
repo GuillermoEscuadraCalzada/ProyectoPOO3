@@ -1,11 +1,4 @@
-#include <iostream>
-#include <string>
-#include <SDL.h>
-#include "MenuInicio.h"
-#include "GameManager.h"
-#include "Vector.h"
-#include "AssetManager.h"
-#include "MenuInicio.h"
+#include "GameManager/GameManager/GameManager.h"
 
 /*
 	Grid 8x8 Tamaño del mapa

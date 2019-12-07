@@ -154,29 +154,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="Lista.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MenuInicio.cpp" />
-    <ClCompile Include="Nodo.cpp" />
+    <ClCompile Include="Contenedores\Lista\Lista.cpp" />
+    <ClCompile Include="GameManager\AssetManager\AssetManager.cpp" />
+    <ClCompile Include="GameManager\AudioManager\AudioManager.cpp" />
+    <ClCompile Include="GameManager\GameManager\GameManager.cpp" />
+    <ClCompile Include="GameManager\InputManager\InputManager.cpp" />
+    <ClCompile Include="GameManager\Timer\Timer.cpp" />
+    <ClCompile Include="GameObject\GameObject.cpp" />
+    <ClCompile Include="Graphics\AnimatedTextures\AnimatedTexture.cpp" />
+    <ClCompile Include="Graphics\Graphics\Graphics.cpp" />
+    <ClCompile Include="Graphics\Texture\Texture.cpp" />
+    <ClCompile Include="MenuInicio\MenuInicio.cpp" />
     <ClCompile Include="Proyecto_POO3.cpp" />
-    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Grafo.h" />
-    <ClInclude Include="Graphics.h" />
-    <ClInclude Include="Lista.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="MenuInicio.h" />
-    <ClInclude Include="Nodo.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Contenedores\Grafo\Grafo.h" />
+    <ClInclude Include="Contenedores\Lista\AssetList.h" />
+    <ClInclude Include="Contenedores\Lista\Lista.h" />
+    <ClInclude Include="Contenedores\Stack\Stack.h" />
+    <ClInclude Include="GameManager\AssetManager\AssetManager.h" />
+    <ClInclude Include="GameManager\AudioManager\AudioManager.h" />
+    <ClInclude Include="GameManager\GameManager\GameManager.h" />
+    <ClInclude Include="GameManager\InputManager\InputManager.h" />
+    <ClInclude Include="GameManager\Timer\Timer.h" />
+    <ClInclude Include="GameObject\GameObject.h" />
+    <ClInclude Include="GameObject\Vector2.h" />
+    <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h" />
+    <ClInclude Include="Graphics\Graphics\Graphics.h" />
+    <ClInclude Include="Graphics\Texture\Texture.h" />
+    <ClInclude Include="MenuInicio\MenuInicio.h" />
+    <ClInclude Include="myVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

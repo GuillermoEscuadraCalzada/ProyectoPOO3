@@ -16,99 +16,150 @@
     <Filter Include="Header Files\MenuInicio">
       <UniqueIdentifier>{0fb9ec2f-074c-4383-a1ac-69fe76d36532}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MenuInicio">
-      <UniqueIdentifier>{36574352-252c-4547-9f83-6e47cfcba5c0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Contenedores">
       <UniqueIdentifier>{8849fddb-9f2d-49ba-9a75-a231be998660}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Contenedores">
-      <UniqueIdentifier>{0b0b208d-1d19-43e1-9153-1151caf90b1c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Graphics">
       <UniqueIdentifier>{7a8310ea-8e48-4825-9aab-5ab6bd4b45dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Graphics">
-      <UniqueIdentifier>{af018087-43b9-4b66-9aee-afd69701f6be}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameManager">
       <UniqueIdentifier>{5b8a65dd-3572-4be1-9cca-bd55eb4b9bfa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameManager">
-      <UniqueIdentifier>{fd8d3289-fb65-44fb-9eaf-0f6648591746}</UniqueIdentifier>
+    <Filter Include="Header Files\Contenedores\myVector">
+      <UniqueIdentifier>{9cdebf49-73be-4eff-9f35-c4f983febdc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameObjects">
+    <Filter Include="Header Files\Contenedores\Stack">
+      <UniqueIdentifier>{1f663d75-72d9-4fef-aec8-9c3bba2abb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Contenedores\Grafo">
+      <UniqueIdentifier>{21b2d895-c863-4c26-a8e8-f6030d7e7711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Contenedores\Grafo\Lista">
+      <UniqueIdentifier>{34a79a78-a9a5-4992-a0b5-bae43dc07826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\Texture">
+      <UniqueIdentifier>{b8234dd6-c225-415d-b8ed-fbf0ba05e09a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\Timer">
+      <UniqueIdentifier>{79d5a3aa-4c8a-499b-9ff0-8b75b0cf7938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\AssetManager">
+      <UniqueIdentifier>{c2441df7-2886-4d46-801c-986c9d0e384d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\AudioManager">
+      <UniqueIdentifier>{5d1100ec-0caf-44f1-a7f4-736fb911bc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\GameManager">
+      <UniqueIdentifier>{dedc7202-ebd1-4892-acdb-ec0299db5574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\Graphics">
+      <UniqueIdentifier>{7332fa98-168f-4bef-9c63-01cff057bc90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\AnimatedTexture">
+      <UniqueIdentifier>{228e7eb3-16d3-4e9c-846e-1f4c3bedd643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Contenedores\Grafo\Lista\AssetList">
+      <UniqueIdentifier>{8e25b9c0-cde4-4fb2-96d1-c01e040e0972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\InputManager">
+      <UniqueIdentifier>{f1e77bf1-8674-42cd-88c7-e172bc60a283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\AudioManager\GameObjects">
       <UniqueIdentifier>{f0df82e9-c825-427f-b6f5-9f589dee4f98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameObject">
-      <UniqueIdentifier>{3858a181-2db0-467f-bd44-4fa7b1a83580}</UniqueIdentifier>
+    <Filter Include="Header Files\GameManager\AudioManager\GameObjects\Vector2">
+      <UniqueIdentifier>{71fc6984-442f-41db-b79e-1a970a4b5be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\AudioManager\GameObjects\Game Object">
+      <UniqueIdentifier>{7caa601f-49e2-47e6-b406-268ff3aa2491}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Proyecto_POO3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuInicio.cpp">
-      <Filter>Source Files\MenuInicio</Filter>
+    <ClCompile Include="GameManager\AssetManager\AssetManager.cpp">
+      <Filter>Header Files\GameManager\AssetManager</Filter>
     </ClCompile>
-    <ClCompile Include="Lista.cpp">
-      <Filter>Source Files\Contenedores</Filter>
+    <ClCompile Include="GameManager\AudioManager\AudioManager.cpp">
+      <Filter>Header Files\GameManager\AudioManager</Filter>
     </ClCompile>
-    <ClCompile Include="Nodo.cpp">
-      <Filter>Source Files\Contenedores</Filter>
+    <ClCompile Include="GameManager\Timer\Timer.cpp">
+      <Filter>Header Files\GameManager\Timer</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Source Files\Graphics</Filter>
+    <ClCompile Include="GameManager\GameManager\GameManager.cpp">
+      <Filter>Header Files\GameManager\GameManager</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files\GameManager</Filter>
+    <ClCompile Include="GameObject\GameObject.cpp">
+      <Filter>Header Files\GameManager\AudioManager\GameObjects\Game Object</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\Graphics</Filter>
+    <ClCompile Include="Graphics\AnimatedTextures\AnimatedTexture.cpp">
+      <Filter>Header Files\Graphics\AnimatedTexture</Filter>
     </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>Source Files\GameManager</Filter>
+    <ClCompile Include="Graphics\Texture\Texture.cpp">
+      <Filter>Header Files\Graphics\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files\Contenedores</Filter>
+    <ClCompile Include="Graphics\Graphics\Graphics.cpp">
+      <Filter>Header Files\Graphics\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\GameObject</Filter>
+    <ClCompile Include="Contenedores\Lista\Lista.cpp">
+      <Filter>Header Files\Contenedores\Grafo\Lista</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInicio\MenuInicio.cpp">
+      <Filter>Header Files\MenuInicio</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager\InputManager\InputManager.cpp">
+      <Filter>Header Files\GameManager\InputManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MenuInicio.h">
+    <ClInclude Include="myVector.h">
+      <Filter>Header Files\Contenedores\myVector</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\AssetManager\AssetManager.h">
+      <Filter>Header Files\GameManager\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\AudioManager\AudioManager.h">
+      <Filter>Header Files\GameManager\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\Timer\Timer.h">
+      <Filter>Header Files\GameManager\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\GameManager\GameManager.h">
+      <Filter>Header Files\GameManager\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\GameObject.h">
+      <Filter>Header Files\GameManager\AudioManager\GameObjects\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Vector2.h">
+      <Filter>Header Files\GameManager\AudioManager\GameObjects\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h">
+      <Filter>Header Files\Graphics\AnimatedTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Texture\Texture.h">
+      <Filter>Header Files\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Graphics\Graphics.h">
+      <Filter>Header Files\Graphics\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Contenedores\Lista\Lista.h">
+      <Filter>Header Files\Contenedores\Grafo\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="Contenedores\Lista\AssetList.h">
+      <Filter>Header Files\Contenedores\Grafo\Lista\AssetList</Filter>
+    </ClInclude>
+    <ClInclude Include="Contenedores\Stack\Stack.h">
+      <Filter>Header Files\Contenedores\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInicio\MenuInicio.h">
       <Filter>Header Files\MenuInicio</Filter>
     </ClInclude>
-    <ClInclude Include="Lista.h">
-      <Filter>Header Files\Contenedores</Filter>
+    <ClInclude Include="Contenedores\Grafo\Grafo.h">
+      <Filter>Header Files\Contenedores\Grafo</Filter>
     </ClInclude>
-    <ClInclude Include="Nodo.h">
-      <Filter>Header Files\Contenedores</Filter>
-    </ClInclude>
-    <ClInclude Include="Grafo.h">
-      <Filter>Header Files\Contenedores</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Header Files\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="AssetManager.h">
-      <Filter>Header Files\GameManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files\Contenedores</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Header Files\Contenedores</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\GameObjects</Filter>
+    <ClInclude Include="GameManager\InputManager\InputManager.h">
+      <Filter>Header Files\GameManager\InputManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
