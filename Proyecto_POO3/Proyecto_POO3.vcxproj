@@ -164,7 +164,10 @@
     <ClCompile Include="Graphics\AnimatedTextures\AnimatedTexture.cpp" />
     <ClCompile Include="Graphics\Graphics\Graphics.cpp" />
     <ClCompile Include="Graphics\Texture\Texture.cpp" />
+    <ClCompile Include="MenuInicio\GameScreen\GameScreen.cpp" />
     <ClCompile Include="MenuInicio\MenuInicio.cpp" />
+    <ClCompile Include="MenuInicio\StartScreen\ScreenManager.cpp" />
+    <ClCompile Include="MenuInicio\StartScreen\StartScreen.cpp" />
     <ClCompile Include="Proyecto_POO3.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -178,11 +181,15 @@
     <ClInclude Include="GameManager\InputManager\InputManager.h" />
     <ClInclude Include="GameManager\Timer\Timer.h" />
     <ClInclude Include="GameObject\GameObject.h" />
+    <ClInclude Include="GameObject\Sons\FirstBusiness.h" />
     <ClInclude Include="GameObject\Vector2.h" />
     <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h" />
     <ClInclude Include="Graphics\Graphics\Graphics.h" />
     <ClInclude Include="Graphics\Texture\Texture.h" />
+    <ClInclude Include="MenuInicio\GameScreen\GameScreen.h" />
     <ClInclude Include="MenuInicio\MenuInicio.h" />
+    <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h" />
+    <ClInclude Include="MenuInicio\StartScreen\StartScreen.h" />
     <ClInclude Include="myVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

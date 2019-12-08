@@ -18,7 +18,7 @@ AssetManager::~AssetManager()
 	while(ffont != nullptr)
 	{
 		AssetNode<TTF_Font*>* temp = ffont->next;
-		TTF_CloseFont(ffont->val);	//Se cierra el font
+		//TTF_CloseFont(ffont->val);	//Se cierra el font
 		delete ffont;
 		ffont= nullptr;
 		ffont = temp;	//Avanza a su siguiente puesto en el vector

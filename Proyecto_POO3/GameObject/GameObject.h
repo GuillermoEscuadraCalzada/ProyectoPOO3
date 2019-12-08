@@ -8,11 +8,14 @@ class GameObject
 public:
 	enum SPACE { local = 0, world = 1 };
 	GameObject(float x = 0, float y = 0);
+	GameObject(Vector2 pos);
 	~GameObject();
 
 	void Position(Vector2 position);
 	Vector2 Position(SPACE space = world);
-
+	Vector2 GetPosition() {
+		return Pos;
+	};
 	void Active(bool active);
 	bool Active();
 	void Translate(Vector2 vec);

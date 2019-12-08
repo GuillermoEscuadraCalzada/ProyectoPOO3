@@ -2,12 +2,10 @@
 #define GAMEMANAGER_H
 
 #include "../../Graphics/Graphics/Graphics.h"
-#include "../../Graphics/AnimatedTextures/AnimatedTexture.h"
 #include "../../MenuInicio/MenuInicio.h"
-#include "../../myVector.h"
 #include "../AudioManager/AudioManager.h"
 #include "../../GameObject/GameObject.h"
-#include "../InputManager/InputManager.h"
+#include "../../MenuInicio/StartScreen/ScreenManager.h"
 
 class GameManager
 {
@@ -44,7 +42,8 @@ private:
 	AssetManager* assetM;
 	AudioManager* audiMGR;
 	InputManager* inputMGR;
-	
+	ScreenManager* screenMGR;
+
 	myVector<Texture*> textureVect;
 	myVector<AnimatedTexture*> animVect;
 	

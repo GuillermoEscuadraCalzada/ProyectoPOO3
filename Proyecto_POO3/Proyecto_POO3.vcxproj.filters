@@ -70,6 +70,15 @@
     <Filter Include="Header Files\Game Object\Vector2">
       <UniqueIdentifier>{71fc6984-442f-41db-b79e-1a970a4b5be9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MenuInicio\ScreenManager">
+      <UniqueIdentifier>{d087413c-0879-4ea7-b26a-fca5c4cb92fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Object\Sons">
+      <UniqueIdentifier>{e52aa9f0-b953-4e01-bf20-03c331348f7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MenuInicio\GameScreen">
+      <UniqueIdentifier>{1f526243-9e45-4294-abd4-8f6fc2688b25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Proyecto_POO3.cpp">
@@ -107,6 +116,15 @@
     </ClCompile>
     <ClCompile Include="GameManager\InputManager\InputManager.cpp">
       <Filter>Header Files\GameManager\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInicio\StartScreen\StartScreen.cpp">
+      <Filter>Header Files\MenuInicio</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInicio\StartScreen\ScreenManager.cpp">
+      <Filter>Header Files\MenuInicio\ScreenManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuInicio\GameScreen\GameScreen.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +175,18 @@
     </ClInclude>
     <ClInclude Include="GameManager\InputManager\InputManager.h">
       <Filter>Header Files\GameManager\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInicio\StartScreen\StartScreen.h">
+      <Filter>Header Files\MenuInicio</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h">
+      <Filter>Header Files\MenuInicio\ScreenManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\FirstBusiness.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuInicio\GameScreen\GameScreen.h">
+      <Filter>Header Files\MenuInicio\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

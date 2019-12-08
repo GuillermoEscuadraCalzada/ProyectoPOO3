@@ -36,7 +36,7 @@ public:
 	~AssetList<T>();
 
 	void push_back(string key, T value);
-	T* at(T key);
+	T at(int index);
 
 	T returnTemplate(string key);
 	void pop_back();
@@ -54,13 +54,9 @@ public:
 	}
 
 
-	SDL_Texture** textureArray;
-	T** textureKeyArr;
-
 private:
 	int size;
 	int current;
-	T lastKey;
 };
 
 //template<class T>
@@ -105,17 +101,7 @@ inline AssetList<T>::AssetList()
 		last = nullptr;
 		this->size = 1;
 		this->current = 0;
-
-		textureArray = new SDL_Texture * [size];
-
-		textureKeyArr = new T * [size];
 		
-		for(int i = 0; i < size; i++)
-		{
-			textureArray[i] = nullptr;
-			textureKeyArr[i] = nullptr;
-		}
-
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
@@ -132,14 +118,8 @@ inline AssetList<T>::~AssetList()
 {
 	try
 	{
-		//Borra los arreglos
-		delete textureKeyArr;	
-		delete textureArray;
-
 		size = NULL;
 		current = NULL;
-		textureKeyArr = NULL;
-		textureArray = nullptr;
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
@@ -182,6 +162,28 @@ inline void AssetList<T>::push_back(string key, T value)
 
 
 
+	} catch(exception & e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	} catch(...)
+	{
+
+	}
+}
+
+template<class T>
+inline T AssetList<T>::at(int index)
+{
+	try
+	{
+		AssetNode<T>* it = first;
+		while(it != nullptr)
+		{
+			if(index == it->index)
+			{
+				return it->val;
+			}
+		}
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;

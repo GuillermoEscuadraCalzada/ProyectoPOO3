@@ -11,6 +11,11 @@ GameObject::GameObject(float x, float y)
 	active = true;	//Se vuelve verdadero
 }
 
+GameObject::GameObject(Vector2 pos)
+{
+	Pos = pos;
+}
+
 /*Destructro de la clase GameObject*/
 GameObject::~GameObject()
 {

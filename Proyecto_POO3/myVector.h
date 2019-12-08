@@ -4,6 +4,7 @@
 #include <string>
 using std::cout; using std::endl; using std::exception; using std::to_string;
 using std::string;
+
 template<class T>
 class Node
 {
@@ -34,6 +35,8 @@ public:
 	Node<T>* last;
 	void push_back(T value);
 	T* return_at(string path);
+	std::string* return_string(int indx);
+	SDL_Rect* return_at(int index);
 	void print();
 };
 
@@ -58,15 +61,6 @@ inline myVector<T>::~myVector()
 		it = nullptr;
 		it = temp;
 	}
-	/*if(first != nullptr)
-	{
-	delete first;
-	first = nullptr;
-	}
-	else if(last== nullptr)
-
-	delete last;
-	last = nullptr;*/
 }
 
 template<class T>
@@ -120,6 +114,52 @@ inline T* myVector<T>::return_at(string path)
 	{
 	}
 	return nullptr;
+}
+
+template<class T>
+inline std::string* myVector<T>::return_string(int indx)
+{
+	try
+	{
+		Node<T>* it = first;
+		while(it != nullptr)
+		{
+			if(indx == it->index)
+			{
+				return &it->val->textText;
+			}
+			it = it->next;
+		}
+	} catch(exception & e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	} catch(...)
+	{
+		cout << "Something crashed\n";
+	}
+}
+
+template<class T>
+inline SDL_Rect* myVector<T>::return_at(int index)
+{
+	try
+	{
+		Node<T>* it = first;
+		while(it != nullptr)
+		{
+			if(index == it->index)
+			{
+				return it->val->rect;
+			}
+			it = it->next;
+		}
+	} catch(exception & e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	} catch(...)
+	{
+		cout << "Something crashed\n";
+	}
 }
 
 

@@ -11,30 +11,29 @@ protected:
 	SDL_Texture* text;
 	Graphics* graphics;
 	int width, height;
-	std::string path;
-	SDL_Rect rect;
 	SDL_Rect clippedRect;
 public:
+	SDL_Color color;
+	std::string textText;
+	std::string fontPath;
 	Texture(std::string path, int x, int y);
 	Texture(std::string path, int x, int y, int w, int h);
 	Texture(std::string text, std::string fontPath, int size, SDL_Color color);
+	
 	~Texture();
 
+	SDL_Rect* rect;
 	std::string GetPath();
-	void setPos(float x, float y);
 
+
+	int size;
 
 	virtual void Render();
 };
 
-inline void Texture::setPos(float x, float y)
-{
-	rect.x = x;
-	rect.y = y;
-}
 
 inline std::string Texture::GetPath()
 {
-	return path;
+	return textText;
 }
 #endif // !TEXTURE_H

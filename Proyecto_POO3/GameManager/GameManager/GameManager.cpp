@@ -16,6 +16,7 @@ GameManager::GameManager()
 	assetM = AssetManager::getPTR();
 	inputMGR = InputManager::getPtr();
 	audiMGR = AudioManager::getPTR();
+	screenMGR = ScreenManager::getPTR();
 	AddTexturesToVec();
 	gameOBJ = new GameObject(100.0f, 300.0f);
 	
@@ -45,6 +46,9 @@ GameManager::~GameManager()
 
 	Timer::Release();
 	timer = nullptr;
+
+	//ScreenManager::Release();
+	//screenMGR = nullptr;
 
 }
 
@@ -83,56 +87,29 @@ GameManager* GameManager::Initialize()
 /*Inicializa el update de muchas funciónes que apenas están iniciando*/
 void GameManager::EarlyUpdate()
 {
-
 	inputMGR->Update();
 }
 
-void GameManager::LateUpdate()
-{
-	inputMGR->UpdatePrevInput();
-	timer->Reset();
-}
 
 
 /*Update es la fucnión que actualiza todos los botones y estados del juego*/
 void GameManager::Update()
 {
-
-	if(inputMGR->keyDown(SDL_SCANCODE_W))
-	{
-		//hollowKnight->Translate(Vector2(0,-40.0f)*timer->DeltaTime());
-		printf("W Key PresseD\n");
-	}
-	if(inputMGR->keyReleased(SDL_SCANCODE_S))
-	{
-		//hollowKnight->Translate(Vector2(0.0f, 40.0f) * timer->DeltaTime());
-		printf("W Key Released\n");
-
-
-	}
-	if(inputMGR->MouseButtonPressed(InputManager::left))
-	{
-		//hollowKnight->Translate(Vector2(0.0f, 40.0f) * timer->DeltaTime());
-		printf("Left Button Pressed\n");
-
-
-	}
-	if(inputMGR->MouseButtonReleased(InputManager::left))
-	{
-		//hollowKnight->Translate(Vector2(0.0f, 40.0f) * timer->DeltaTime());
-		printf("Left button Released\n");
-
-		
-	}
-
+	screenMGR->Update();
 }
 
-/*El update principal del juego*/
+ void GameManager::LateUpdate()
+{
+	inputMGR->UpdatePrevInput();
+	timer->Reset();
+}
+
+ /*El update principal del juego*/
 void GameManager::MainUpdate()
 {
-	menuInicio = new MenuInicio();
-	menuInicio->Update();
-	while(!quit && menuInicio->continuee)
+	//menuInicio = new MenuInicio();
+	//menuInicio->Update();
+	while(!quit /*&& menuInicio->continuee*/)
 	{
 		timer->Update();
 
@@ -161,16 +138,15 @@ void GameManager::Render()
 {
 	graphics->ClearBackBuffer();
 
-
-
-	(*textureVect.return_at(text->GetPath()))->Render();
-	(*textureVect.return_at(backGround->GetPath()))->Render();
-	(*animVect.return_at(hollowKnight->GetPath()))->Update();
-	(*animVect.return_at(hollowKnight->GetPath()))->Render();
+	screenMGR->Render();
+	//(*textureVect.return_at(text->GetPath()))->Render();
+	//(*textureVect.return_at(backGround->GetPath()))->Render();
+	//(*animVect.return_at(hollowKnight->GetPath()))->Update();
+	//(*animVect.return_at(hollowKnight->GetPath()))->Render();
 	//hollowKnight->WrapMode(AnimatedTexture::once);
-	(*textureVect.return_at(text2->GetPath()))->Render();
-	
-	this->text->Render();
+	//(*textureVect.return_at(text2->GetPath()))->Render();
+	//
+	//this->text->Render();
 
 	graphics->Render();	//Actualiza constantemente el render del juego
 
