@@ -186,6 +186,8 @@
     <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h" />
     <ClInclude Include="Graphics\Graphics\Graphics.h" />
     <ClInclude Include="Graphics\Texture\Texture.h" />
+    <ClInclude Include="Graphs\Graph.h" />
+    <ClInclude Include="Graphs\GraphList.h" />
     <ClInclude Include="MenuInicio\GameScreen\GameScreen.h" />
     <ClInclude Include="MenuInicio\MenuInicio.h" />
     <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h" />

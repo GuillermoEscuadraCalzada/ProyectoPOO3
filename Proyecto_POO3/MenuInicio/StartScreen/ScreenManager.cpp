@@ -5,10 +5,12 @@ ScreenManager* ScreenManager::instance = nullptr;
 /*Constructor por defecto de la clase ScreenManager*/
 ScreenManager::ScreenManager()
 {
-	input = InputManager::getPtr();	//Apuntador de la clase Input
-	startScreen = new StartScreen();	//Se crea un objeto de la clase StartScreen
-	gameScreen = new GameScreen();	//Se crea un objeto de la clase GameScreen
-	currentScreen = start;	//El enum comienza con la variable start
+	input = InputManager::getPtr();	  //Apuntador de la clase Input
+	startScreen = new StartScreen();   //Se crea un objeto de la clase StartScreen
+	gameScreen = new GameScreen();	  //Se crea un objeto de la clase GameScreen
+	currentScreen = start;		     //El enum comienza con la variable start
+	gameScreen->Init();
+
 }
 
 
@@ -73,7 +75,6 @@ void ScreenManager::Render()
 			currentScreen = play;
 		break;
 	case play:
-		
 		gameScreen->Render();	//Se renderiza esta sección
 		break;
 	default:

@@ -16,6 +16,7 @@ public:
 	SDL_Color color;
 	std::string textText;
 	std::string fontPath;
+	Texture();
 	Texture(std::string path, int x, int y);
 	Texture(std::string path, int x, int y, int w, int h);
 	Texture(std::string text, std::string fontPath, int size, SDL_Color color);
@@ -27,6 +28,7 @@ public:
 
 
 	int size;
+	int index;
 
 	virtual void Render();
 };

@@ -79,6 +79,9 @@
     <Filter Include="Header Files\MenuInicio\GameScreen">
       <UniqueIdentifier>{1f526243-9e45-4294-abd4-8f6fc2688b25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graph">
+      <UniqueIdentifier>{04bb668c-5568-4c8a-b23b-dea9017a39f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Proyecto_POO3.cpp">
@@ -124,7 +127,7 @@
       <Filter>Header Files\MenuInicio\ScreenManager</Filter>
     </ClCompile>
     <ClCompile Include="MenuInicio\GameScreen\GameScreen.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\MenuInicio\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +190,12 @@
     </ClInclude>
     <ClInclude Include="MenuInicio\GameScreen\GameScreen.h">
       <Filter>Header Files\MenuInicio\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphs\Graph.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphs\GraphList.h">
+      <Filter>Header Files\Graph</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

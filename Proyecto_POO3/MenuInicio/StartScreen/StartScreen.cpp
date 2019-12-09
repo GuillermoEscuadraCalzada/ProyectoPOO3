@@ -78,7 +78,7 @@ void StartScreen::Update()
 /*Se renderizan todos nodos del vector d ela ventana*/
 void StartScreen::Render()
 {
-	
+	backGround->Render();
 	Node<Texture*>* it = screenVec.first;	//Se crea un iterador que recorrerá toda la lista de la clase
 	while(it != nullptr)
 	{
@@ -112,7 +112,7 @@ void StartScreen::MainMenu()
 	QuitText->Position(Vector2(position2.x, position2.y * 1.5f));
 
 	//Se hace push back de cada imagen al vector ScreenVec
-	screenVec.push_back(backGround);
+
 	screenVec.push_back(titleText);
 	screenVec.push_back(startText);
 	screenVec.push_back(hSText);

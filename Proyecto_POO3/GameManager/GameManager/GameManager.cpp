@@ -56,23 +56,7 @@ GameManager::~GameManager()
 /*Añade funcioens al vector de texturas y de animaciones*/
 void GameManager::AddTexturesToVec()
 {
-	backGround = new Texture("Fondo.png",0, 0, 600, 600);
-	
-	backGround->Position(Vector2(300, 300));
-	hollowKnight = new AnimatedTexture("Music.jpg",15, 64, 138, 83, 3, 2.0f, AnimatedTexture::horizontal);
-	hollowKnight->Position(Vector2(300, 300));
 
-	
-	text = new Texture("Que tranza", "arial.ttf", 20, { 255, 0, 255 });
-	text->Position(Vector2(100, 100));
-
-	text2 = new Texture("Mames", "arial.ttf", 20, { 255, 10, 255 });
-	text2->Position(Vector2(100,300));
-
-	animVect.push_back(hollowKnight);
-	textureVect.push_back(backGround);
-	textureVect.push_back(text);
-	textureVect.push_back(text2);
 }
 
 /*Esta función te permite inicializar esta clase, preguntando si ya existe un apuntador de esta clase*/
@@ -139,14 +123,6 @@ void GameManager::Render()
 	graphics->ClearBackBuffer();
 
 	screenMGR->Render();
-	//(*textureVect.return_at(text->GetPath()))->Render();
-	//(*textureVect.return_at(backGround->GetPath()))->Render();
-	//(*animVect.return_at(hollowKnight->GetPath()))->Update();
-	//(*animVect.return_at(hollowKnight->GetPath()))->Render();
-	//hollowKnight->WrapMode(AnimatedTexture::once);
-	//(*textureVect.return_at(text2->GetPath()))->Render();
-	//
-	//this->text->Render();
 
 	graphics->Render();	//Actualiza constantemente el render del juego
 

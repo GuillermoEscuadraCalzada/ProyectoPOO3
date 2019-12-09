@@ -2,6 +2,9 @@
 
 /*Constructor de la clase Texture, requiere de un string que será la ubicación de la imagen
 	@param[ path ] ubiación de donde se encuentra la imagen*/
+Texture::Texture()
+{
+}
 Texture::Texture(std::string path, int x, int y)
 {
 	rect = new SDL_Rect();

@@ -1,2 +1,23 @@
-﻿  GameScreen.cpp
-  Proyecto_POO3.vcxproj -> C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Debug\Proyecto_POO3.exe
+﻿  GameManager.cpp
+  GameScreen.cpp
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(19,27): error C2065: 'first': undeclared identifier
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(20): message : while compiling class template member function 'GraphNode<T>::GraphNode(T,Vector2)'
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(20): message :         with
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(20): message :         [
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(20): message :             T=Texture *
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(20): message :         ]
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message : see reference to function template instantiation 'GraphNode<T>::GraphNode(T,Vector2)' being compiled
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         with
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         [
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :             T=Texture *
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         ]
+  ScreenManager.cpp
+  Proyecto_POO3.cpp
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message : see reference to class template instantiation 'GraphNode<T>' being compiled
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         with
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         [
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :             T=Texture *
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(27): message :         ]
+  Generating Code...
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
