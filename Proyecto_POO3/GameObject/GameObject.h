@@ -16,6 +16,12 @@ public:
 	Vector2 GetPosition() {
 		return Pos;
 	};
+	Vector2 addFloat(int x, int y)
+	{
+		Pos.x += x;
+		Pos.y += y;
+		return Pos;
+	}
 	void Active(bool active);
 	bool Active();
 	void Translate(Vector2 vec);

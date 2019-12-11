@@ -17,7 +17,6 @@ GameManager::GameManager()
 	inputMGR = InputManager::getPtr();
 	audiMGR = AudioManager::getPTR();
 	screenMGR = ScreenManager::getPTR();
-	AddTexturesToVec();
 	gameOBJ = new GameObject(100.0f, 300.0f);
 	
 }
@@ -53,11 +52,7 @@ GameManager::~GameManager()
 }
 
 
-/*Añade funcioens al vector de texturas y de animaciones*/
-void GameManager::AddTexturesToVec()
-{
 
-}
 
 /*Esta función te permite inicializar esta clase, preguntando si ya existe un apuntador de esta clase*/
 GameManager* GameManager::Initialize()

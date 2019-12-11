@@ -181,7 +181,12 @@
     <ClInclude Include="GameManager\InputManager\InputManager.h" />
     <ClInclude Include="GameManager\Timer\Timer.h" />
     <ClInclude Include="GameObject\GameObject.h" />
+    <ClInclude Include="GameObject\Sons\FifthBSNS.h" />
     <ClInclude Include="GameObject\Sons\FirstBusiness.h" />
+    <ClInclude Include="GameObject\Sons\FourthBSNS.h" />
+    <ClInclude Include="GameObject\Sons\SecondBSNS.h" />
+    <ClInclude Include="GameObject\Sons\SixthBSNS.h" />
+    <ClInclude Include="GameObject\Sons\ThirdBSNS.h" />
     <ClInclude Include="GameObject\Vector2.h" />
     <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h" />
     <ClInclude Include="Graphics\Graphics\Graphics.h" />

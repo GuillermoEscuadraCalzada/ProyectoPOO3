@@ -197,5 +197,20 @@
     <ClInclude Include="Graphs\GraphList.h">
       <Filter>Header Files\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject\Sons\SecondBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\ThirdBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\FourthBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\FifthBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\SixthBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

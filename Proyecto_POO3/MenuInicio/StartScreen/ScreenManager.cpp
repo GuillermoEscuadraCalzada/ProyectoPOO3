@@ -47,7 +47,7 @@ void ScreenManager::Release()
 /*Actualiza los estados de juego que se encuentran en el enum*/
 void ScreenManager::Update()
 {
-	
+
 	/*Se hace un switch entre las pantallas actuales del juego*/
 	switch(currentScreen)
 	{

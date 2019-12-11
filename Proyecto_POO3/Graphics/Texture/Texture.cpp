@@ -1,11 +1,13 @@
 #include "Texture.h"
 
-/*Constructor de la clase Texture, requiere de un string que será la ubicación de la imagen
-	@param[ path ] ubiación de donde se encuentra la imagen*/
+
 Texture::Texture()
 {
 }
-Texture::Texture(std::string path, int x, int y)
+
+/*Constructor de la clase Texture, requiere de un string que será la ubicación de la imagen
+	@param[ path ] ubiación de donde se encuentra la imagen*/
+Texture::Texture(std::string path)
 {
 	rect = new SDL_Rect();
 
@@ -26,6 +28,27 @@ Texture::Texture(std::string path, int x, int y)
 	@param[y] posición de la imagen en Y donde comienza la animación
 	@param[w} anchura del segmento de la imagen
 	@param[h] altura del segmento d ela imagen*/
+Texture::Texture(std::string path, int x, int y, int w, int h, int id)
+{
+	graphics = Graphics::returnPTR();	//Pregunta por el apuntador de la clase Graphics
+	texture = AssetManager::getPTR()->GetTexture(path);	//Pregunta por el apuntador de la classe assetManager y luego busca la función de GetTexture
+	this->textText = path;	//Path se igual al path del argumento
+	clipped = true;	//Clipp es true
+	rect = new SDL_Rect();
+	width = w;	//width es igual a la w del argumento
+	height = h;	//Height es igual a la h del argumento
+	rect->w = width;	//La anchura de rect es igual a width
+	rect->h = height;	//La altrua de rect es igual a height
+	ID = id;
+	clippedRect.x = x;	//La posición de clippRect en X es igual a x
+	clippedRect.y = y;	//La posición de clippRect en Y es igual a y
+	clippedRect.w = w;	//La anchura de clippedRect es igual a la w del parámetro
+	clippedRect.h = h;	//La altura de clippedRect es igual a la h del parámetro
+
+
+
+}
+
 Texture::Texture(std::string path, int x, int y, int w, int h)
 {
 	graphics = Graphics::returnPTR();	//Pregunta por el apuntador de la clase Graphics
@@ -37,14 +60,10 @@ Texture::Texture(std::string path, int x, int y, int w, int h)
 	height = h;	//Height es igual a la h del argumento
 	rect->w = width;	//La anchura de rect es igual a width
 	rect->h = height;	//La altrua de rect es igual a height
-
 	clippedRect.x = x;	//La posición de clippRect en X es igual a x
 	clippedRect.y = y;	//La posición de clippRect en Y es igual a y
 	clippedRect.w = w;	//La anchura de clippedRect es igual a la w del parámetro
 	clippedRect.h = h;	//La altura de clippedRect es igual a la h del parámetro
-
-
-
 }
 
 /*Constructor de la clase texture que SÓLO sirve para añadir textos
@@ -75,12 +94,12 @@ Texture::~Texture()
 	graphics = nullptr;
 }
 
-
+/*Esta función ubicará a las imágenes donde se haya especificado*/
 void Texture::Render()
 {
-	Vector2 pos = Position();
-	rect->x = (int)(pos.x - width * 0.5f);
-	rect->y = (int)(pos.y - height * 0.5f);
-	graphics->DrawTexture(texture, (clipped)? &clippedRect : NULL, rect);
+	Vector2 pos = Position();	//Se guarda una variaple a la posición
+	rect->x = (int)(pos.x - width * 0.5f);	//Se resta la posición de X con la mitad de la anchura de la imagen
+	rect->y = (int)(pos.y - height * 0.5f);//Se resta la posición de Y con la mitad de la anchura de la imagen
+	graphics->DrawTexture(texture, (clipped)? &clippedRect : NULL, rect);	//Se dibuja una textura con la posibilidad de que sea una texura animada
 	graphics->DrawTexture(text,  NULL, rect);
 }

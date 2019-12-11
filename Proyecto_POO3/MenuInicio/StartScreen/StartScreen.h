@@ -21,6 +21,7 @@ class StartScreen : public GameObject
 	Texture* hSText;
 	Texture* QuitText;
 	myVector<Texture*> screenVec;
+	myVector<string>* string;
 public:
 	StartScreen();
 	~StartScreen();

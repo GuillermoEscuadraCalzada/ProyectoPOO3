@@ -17,12 +17,13 @@ public:
 	std::string textText;
 	std::string fontPath;
 	Texture();
-	Texture(std::string path, int x, int y);
+	Texture(std::string path);
+	Texture(std::string path, int x, int y, int w, int h, int id);
 	Texture(std::string path, int x, int y, int w, int h);
 	Texture(std::string text, std::string fontPath, int size, SDL_Color color);
 	
 	~Texture();
-
+	int ID;
 	SDL_Rect* rect;
 	std::string GetPath();
 
