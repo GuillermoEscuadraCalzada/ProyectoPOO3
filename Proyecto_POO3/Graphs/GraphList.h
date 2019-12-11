@@ -41,10 +41,13 @@ class GraphList
 public:
 
 	GraphNode<T>* first;
+	GraphNode<T>* nodeToFind;
+
 	//GraphNode<T>* last;
 	int size = 64;
 	GraphList<T>();
 	~GraphList<T>();
+	bool found = false;
 
 	void push_at(int index, int index2, GraphNode<T>* value);
 	GraphNode<T>* return_at_array(int index, int index2);
@@ -55,6 +58,9 @@ public:
 	void renderNode(GraphNode<T>* node);
 	void swap(GraphNode<T>* ghLeft, GraphNode<T>* ghRight);
 	GraphNode<T>* graphArr[8][8];
+private:
+	int index1;
+	int index2;
 };
 
 template<class T>
@@ -63,7 +69,8 @@ inline GraphList<T>::GraphList()
 	try
 	{
 		first = nullptr;
-
+		nodeToFind = nullptr;
+		index1 = index2 = NULL;
 	} catch(exception & e)
 	{
 		cout << "Exception caght: " << e.what() << endl;
@@ -187,8 +194,8 @@ inline GraphNode<T>* GraphList<T>::return_at_index(int index, GraphNode<T>* root
 			//Si el iterador tiene el índice igual al introducido, regresa este valor
 			if( it->index == index)
 			{
-				//printf("Node found at: %i\nWith path: %s", index, it->value->textText.c_str());
-				return it;
+				nodeToFind = it;
+				found = true;
 			}
 			//Si su siguiente nodo es nulo, avanza al nodo inferior al nodo principal de esta línea
 			if(it->next == nullptr)
@@ -199,8 +206,12 @@ inline GraphNode<T>* GraphList<T>::return_at_index(int index, GraphNode<T>* root
 					return_at_index(index, it2); //Avanza al nodo inferior del primer nodo de esta fila	
 				}
 			}
+			if(found)
+				break;
 			it = it->next;
 		}
+		found = false;
+		return nodeToFind;
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
@@ -269,12 +280,22 @@ inline GraphNode<T>* GraphList<T>::detectMouse(GraphNode<T>* root, Vector2 mouse
 		{
 			//Pregunta si la posición del mouse se encuentra entre el cuadrante de la imagen y regresa su valor
 			if(mousePos.x >= it->value->rect->x && mousePos.x <= it->value->rect->x + it->value->rect->w
-			   && mousePos.y >= it->value->rect->y && mousePos.y <= it->value->rect->y + it->value->rect->h && pressed)
+			   && mousePos.y >= it->value->rect->y && mousePos.y <= it->value->rect->y + it->value->rect->h)
 			{
-				printf("Mouse on: %s\n", it->value->textText.c_str());
-				return it;
-			} 
-			
+				if(pressed)
+				{
+					nodeToFind = it;	 //Este nodo guarda el valor del iterador.
+					nodeToFind->value->rect->w *= 0.5;	//Se multiplica el ancho por la mitad
+					nodeToFind->value->rect->h *= 0.5;	//Se multiplica lo alto por la mitad
+
+					/*La imagen se mueve hacia adelante la mitad de su anchura actual y hacia abajo la mitad de su altura actual para quedar en el centro del cuadrante*/
+					nodeToFind->value->Position(Vector2(nodeToFind->value->Position().x + nodeToFind->value->rect->w / 2, 
+														nodeToFind->value->Position().y + nodeToFind->value->rect->h / 2));
+
+					found = true;	//Este booleano se vuelve verdadero
+				}
+			}
+
 			//Si su siguiente nodo es nulo, avanza al nodo inferior al nodo principal de esta línea
 			if(it->next == nullptr)
 			{
@@ -284,9 +305,14 @@ inline GraphNode<T>* GraphList<T>::detectMouse(GraphNode<T>* root, Vector2 mouse
 					detectMouse(it2, mousePos, pressed);
 				}
 			}
+			//Si es verdadero, detente
+			if(found)
+				break;
+			
 			it = it->next;
 		}
-
+		found = false;
+		return nodeToFind;
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
@@ -304,23 +330,39 @@ inline GraphNode<T>* GraphList<T>::searchNode(GraphNode<T>* first, GraphNode<T>*
 {
 	try
 	{
-		GraphNode<T>* it = first;
-		GraphNode<T>* it2 = nullptr;
+		GraphNode<T>* it = first;	//Nodo que se igualará al primer nodo del argumento, 
+		GraphNode<T>* it2 = nullptr;	//Un nodo que es nulo 
+
+		//Si el nodo inferior al nodo del argumento es diferente de nulo, el nodo it2 será igual a ese valor
 		if(first->bottom != nullptr)
 			it2 = first->bottom;
+
+
+		//Itera por todo el grafo
 		while(it != nullptr)
 		{
-			if(it == node)
-				return it;
 
+			//Si encuentras el nodo
+			if(it == node)
+			{
+				nodeToFind = it;	//NodeToFind es igual al iterador
+				found = true;	//Regresa verdadero
+			}
+			//Si el siguiente del iterador es igual a nulo, 
 			if(it->next == nullptr)
 			{
+				//Y mientras it2 no sea nulo,
 				if(it2 != nullptr)
-					searchNode(it2, node);
+					searchNode(it2, node); //Avanza al iterador it2
 			}
-			it = it->next;
+			//Si se encontró el nodo, ya no avances más
+			if(found)
+				break;
+			it = it->next; //Avanza al siguiente
 
 		}
+		found = false;	//Found se vuelve falso
+		return nodeToFind; //Regresa NodeToFind
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;
@@ -383,26 +425,42 @@ inline void GraphList<T>::renderNode(GraphNode<T>* node)
 	}
 }
 
-
+/*Esta función intercambiará las texturas de los nodos seleccionados con el mouse
+ *@param[GraphNode<T>* ghleft] primer nodo tocado en el juego
+ *@param[GraphNode<T>* ghRight] segundo nodo tocado en el juego*/
 template<class T>
 inline void GraphList<T>::swap(GraphNode<T>* ghLeft, GraphNode<T>* ghRight)
 {
 	try
 	{
-		GraphNode<T>* firstNode = searchNode(first, ghLeft);
-		GraphNode<T>* secondNode = searchNode(first, ghRight);
-		if(firstNode->value->ID == secondNode->value->ID &&ghLeft != nullptr)
-		{
-			printf("Son igualeeeeees!\n");
-			cout << ghLeft->value->textText.c_str()<< endl <<  ghRight->value->textText.c_str() << endl;
-		}
-		else if(searchNode(first, ghLeft)->value->ID != ghRight->value->ID && ghLeft != nullptr)
-		{
-			 printf("No son igualeeese!\n");
-			 cout << ghLeft->value->textText.c_str() << endl << ghRight->value->textText.c_str() << endl;
 
-		} else
-			cout << "Que esta pasando!\n";
+		GraphNode<T>* firstNode = searchNode(first, ghLeft);	//Busca el nodo en el grafo y guardalo dentro de una variable
+		GraphNode<T>* secondNode = searchNode(first, ghRight); //Busca el nodo en el grafo y fuardalo dentro de una variable
+		T text1 = firstNode->value;	//Crea una variable tipo template e igualala al valor dentro de firstNode
+		T text2 = secondNode->value;	//Crea una variable tipo template e igualala al valor dentro de secondNode
+
+		//Preguntar si el segundo nodo es algún hijo del primer nodo, si lo es, crea un vector temporal
+		if(secondNode == firstNode->next || secondNode == firstNode->prev || secondNode == firstNode->top || secondNode == firstNode->bottom)
+		{
+			Vector2 temp = text1->Position();	//Vector temporal de la posición de text1
+			text1->Position(text2->Position()); //Text 1 cambia su posición al de text2
+			text2->Position(temp); //Text2 toma el valor del vector temporal
+			text1->Position(Vector2(text1->Position().x - text1->rect->w / 2, text1->Position().y - text1->rect->h / 2));	//Regresa la posición de text1 a al inicio del cuadrante
+			text1->rect->w *= 2;	//Duplica su anchura actual
+			text1->rect->h *= 2;	//Duplica su altura actual
+
+			text2->Position(Vector2(text2->Position().x - text2->rect->w / 2, text2->Position().y - text2->rect->h / 2)); //Regresa la posición de text2 a al inicio del cuadrante
+			text2->rect->w *= 2;	//Duplica su anchura actual
+			text2->rect->h *= 2;	//Duplica su altura actual
+			firstNode->value = text2;	//El valor del primer nodo cambia
+			secondNode->value = text1;	//Al igual que el valor del segundo nodo
+			
+		}
+		else
+		{
+			printf("Te conozco?\n");
+		}
+
 
 	} catch(exception & e)
 	{

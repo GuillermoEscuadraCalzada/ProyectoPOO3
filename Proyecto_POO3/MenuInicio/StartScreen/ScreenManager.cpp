@@ -9,7 +9,7 @@ ScreenManager::ScreenManager()
 	startScreen = new StartScreen();   //Se crea un objeto de la clase StartScreen
 	gameScreen = new GameScreen();	  //Se crea un objeto de la clase GameScreen
 	currentScreen = start;		     //El enum comienza con la variable start
-	gameScreen->Init();
+	//gameScreen->Init();
 
 }
 
@@ -56,6 +56,7 @@ void ScreenManager::Update()
 		break;
 	case play:
 		gameScreen->Update();	//Se llama la función update de GameScreen
+
 	default:
 		break;
 	}
@@ -72,10 +73,14 @@ void ScreenManager::Render()
 		startScreen->MainMenu();	//Función de Main Menu que carga los textos iniciales del juego
 		startScreen->Render();	//Se renderiza
 		if(startScreen->startGame)	//Si este booleano se cumple, cambia de estado
+		{
 			currentScreen = play;
+			gameScreen->Init();
+		}
 		break;
+
 	case play:
-		gameScreen->Render();	//Se renderiza esta sección
+			gameScreen->Render();	//Se renderiza esta sección
 		break;
 	default:
 		break;

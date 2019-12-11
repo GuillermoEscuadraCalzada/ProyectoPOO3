@@ -29,13 +29,13 @@ GameScreen::~GameScreen()
 void GameScreen::Update()
 {
 	input->Update();	
+
 	milisegundos++;
 	if(milisegundos == 60)
 	{
 		segundos++;
 		milisegundos = 0;
-	}
-	else if(segundos == 60)
+	}else if(segundos == 60)
 	{
 		minutos++;
 		segundos = 0;
@@ -46,15 +46,14 @@ void GameScreen::Update()
 	scoreBoard->Position(Vector2(100, 20));	//Se pone en la esquina izquierda
 	bool pressed = false;
 
+	/*Cuando el tiempo tota*/
 	if(totalTime > 1.0)
 	{
-		printf("Mouse Position:\nX: %f\nY: %f\n", input->MousePosition().x, input->MousePosition().y);
 		if(input->MouseButtonPressed(InputManager::left))
 		{
 			pressed = true;
 			if(!newIMG)
 			{
-
 				firstImage = gameGraph.list->detectMouse(gameGraph.list->first, input->MousePosition(), pressed);
 				newIMG = firstImage;
 				firstImage = nullptr;
@@ -62,6 +61,7 @@ void GameScreen::Update()
 			else
 			{
 				firstImage = gameGraph.list->detectMouse(gameGraph.list->first, input->MousePosition(), pressed);
+				
 				gameGraph.list->swap(firstImage, newIMG);
 				firstImage = nullptr;
 				newIMG = nullptr;
@@ -70,12 +70,13 @@ void GameScreen::Update()
 		}
 		
 	}
+
 	input->UpdatePrevInput();
 }
 	
+/*Función que renderiza cada elemento importante de esta ventana, los nodos del grafo, el fondo, el score y */
 void GameScreen::Render()
 {
-	
 	backGround->Render();
 	scoreBoard->Render();
 	grid->Render();
@@ -132,7 +133,7 @@ void GameScreen::Init()
 				node = new GraphNode<Texture*>(sixthBSNS, position);
 #pragma endregion
 			
-			node->index = i * 8 + j;
+			node->index = i * 8 + j; //Los índices de cada nodo incrementarán dependiendo de los ciclos for
 			
 			gameGraph.InsertNode(i, j, node);
 			
@@ -148,7 +149,6 @@ void GameScreen::Init()
 
 	
 	UpdateNodesSons();
-
 }
 
 /*Todos los nodos que existan en el arreglo de nodos de la lista, obrendrán diferentes hijos dependiendo de su posición en la pantalla*/
@@ -202,29 +202,24 @@ void GameScreen::UpdateNodesSons()
 void GameScreen::setupPosition(Texture* firstBSNS, Texture* secondBSNS, Texture* thirdBSNS, Texture* fourthBSNS, Texture* fifthBSNS, Texture* sixthBSNS, Vector2 pos)
 {
 	Texture** textList = new Texture * [6];
-	textList[0] = firstBSNS;
-	textList[1] = secondBSNS;
-	textList[2] = thirdBSNS;
-	textList[3] = fourthBSNS;
-	textList[4] = fifthBSNS;
-	textList[5] = sixthBSNS;
+	textList[0] = firstBSNS; textList[1] = secondBSNS;textList[2] = thirdBSNS;
+	textList[3] = fourthBSNS; textList[4] = fifthBSNS; textList[5] = sixthBSNS;
 
+	//Crea un ciclo for donde cada elemento del arreglo de texturas realiza lo siguiente
 	for(int i = 0; i < 6; i++)
 	{
-		textList[i]->Position(Vector2(pos.x + textList[i]->rect->w/2, -100 + textList[i]->rect->h / 2));
-		while(textList[i]->Position().y < pos.y + textList[i]->rect->h / 2)
+		textList[i]->Position(Vector2(pos.x + textList[i]->rect->w/2, -100 + textList[i]->rect->h / 2));	//Se inicializa una posición fuera de la pantalla
+		while(textList[i]->Position().y < pos.y + textList[i]->rect->h / 2)	//Mientras sea menor a la posición final indicada, haz un ciclo
 		{
-			Vector2 translatePos(0, 1);
-			textList[i]->addFloat(translatePos.x, translatePos.y) * timer->DeltaTime();
-			if(textList[i]->Position().y == pos.y + textList[i]->rect->h/2)
+			 //Crea un vector con uno en el valor de Y
+			textList[i]->addFloat(0, 1);	//Se añade ese valor a Y
+			//printf("Pos X: %f\tY: %f\n", textList[0]->Position().x, textList[0]->Position().y);
+			textList[i]->Render();
+
+
+			if(textList[i]->Position().y == pos.y + textList[i]->rect->h/2)//Cuando llega a esta posición, termina el while
 				break;
 		}
 	}
-	///*Las imágenes se mueven a la posición indicada pero se modifica un poco para quese posicionen de manera correcta dependiendo de su altura y anchura*/
-	//firstBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
-	//secondBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
-	//thirdBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
-	//fourthBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
-	//fifthBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
-	//sixthBSNS->Position(Vector2(pos.x + firstBSNS->rect->w / 2, pos.y + firstBSNS->rect->h / 2));
+
 }

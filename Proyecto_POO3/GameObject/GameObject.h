@@ -16,7 +16,7 @@ public:
 	Vector2 GetPosition() {
 		return Pos;
 	};
-	Vector2 addFloat(int x, int y)
+	Vector2 addFloat(float x, float y)
 	{
 		Pos.x += x;
 		Pos.y += y;
