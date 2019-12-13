@@ -88,6 +88,7 @@ void GameManager::MainUpdate()
 {
 	//menuInicio = new MenuInicio();
 	//menuInicio->Update();
+	audiMGR->PlayMusic("funkorama.mp3");
 	while(!quit /*&& menuInicio->continuee*/)
 	{
 		timer->Update();

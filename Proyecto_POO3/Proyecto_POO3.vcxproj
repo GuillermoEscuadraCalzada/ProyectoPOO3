@@ -174,7 +174,6 @@
     <ClInclude Include="Contenedores\Grafo\Grafo.h" />
     <ClInclude Include="Contenedores\Lista\AssetList.h" />
     <ClInclude Include="Contenedores\Lista\Lista.h" />
-    <ClInclude Include="Contenedores\Stack\Stack.h" />
     <ClInclude Include="GameManager\AssetManager\AssetManager.h" />
     <ClInclude Include="GameManager\AudioManager\AudioManager.h" />
     <ClInclude Include="GameManager\GameManager\GameManager.h" />
@@ -182,7 +181,7 @@
     <ClInclude Include="GameManager\Timer\Timer.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameObject\Sons\FifthBSNS.h" />
-    <ClInclude Include="GameObject\Sons\FirstBusiness.h" />
+    <ClInclude Include="GameObject\Sons\firstBSNS.h" />
     <ClInclude Include="GameObject\Sons\FourthBSNS.h" />
     <ClInclude Include="GameObject\Sons\SecondBSNS.h" />
     <ClInclude Include="GameObject\Sons\SixthBSNS.h" />
@@ -193,6 +192,7 @@
     <ClInclude Include="Graphics\Texture\Texture.h" />
     <ClInclude Include="Graphs\Graph.h" />
     <ClInclude Include="Graphs\GraphList.h" />
+    <ClInclude Include="Graphs\Stack\Stack.h" />
     <ClInclude Include="MenuInicio\GameScreen\GameScreen.h" />
     <ClInclude Include="MenuInicio\MenuInicio.h" />
     <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h" />

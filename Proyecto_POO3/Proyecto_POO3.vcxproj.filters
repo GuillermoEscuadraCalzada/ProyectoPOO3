@@ -28,9 +28,6 @@
     <Filter Include="Header Files\Contenedores\myVector">
       <UniqueIdentifier>{9cdebf49-73be-4eff-9f35-c4f983febdc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Contenedores\Stack">
-      <UniqueIdentifier>{1f663d75-72d9-4fef-aec8-9c3bba2abb0f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Contenedores\Grafo">
       <UniqueIdentifier>{21b2d895-c863-4c26-a8e8-f6030d7e7711}</UniqueIdentifier>
     </Filter>
@@ -81,6 +78,9 @@
     </Filter>
     <Filter Include="Header Files\Graph">
       <UniqueIdentifier>{04bb668c-5568-4c8a-b23b-dea9017a39f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graph\Stack">
+      <UniqueIdentifier>{1f663d75-72d9-4fef-aec8-9c3bba2abb0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +167,6 @@
     <ClInclude Include="Contenedores\Lista\AssetList.h">
       <Filter>Header Files\Contenedores\Grafo\Lista\AssetList</Filter>
     </ClInclude>
-    <ClInclude Include="Contenedores\Stack\Stack.h">
-      <Filter>Header Files\Contenedores\Stack</Filter>
-    </ClInclude>
     <ClInclude Include="MenuInicio\MenuInicio.h">
       <Filter>Header Files\MenuInicio</Filter>
     </ClInclude>
@@ -184,9 +181,6 @@
     </ClInclude>
     <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h">
       <Filter>Header Files\MenuInicio\ScreenManager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Sons\FirstBusiness.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
     </ClInclude>
     <ClInclude Include="MenuInicio\GameScreen\GameScreen.h">
       <Filter>Header Files\MenuInicio\GameScreen</Filter>
@@ -210,6 +204,12 @@
       <Filter>Header Files\Game Object\Sons</Filter>
     </ClInclude>
     <ClInclude Include="GameObject\Sons\SixthBSNS.h">
+      <Filter>Header Files\Game Object\Sons</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphs\Stack\Stack.h">
+      <Filter>Header Files\Graph\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject\Sons\firstBSNS.h">
       <Filter>Header Files\Game Object\Sons</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,7 +4,7 @@
 #include "../../GameManager/Timer/Timer.h"
 #include "../../GameObject/GameObject.h"
 #include "../../Graphs/Graph.h"
-#include "../../GameObject/Sons/FirstBusiness.h"
+#include "../../GameObject/Sons/firstBSNS.h"
 #include "../../GameObject/Sons/SecondBSNS.h"
 #include "../../GameObject/Sons/ThirdBSNS.h"
 #include "../../GameObject/Sons/FourthBSNS.h"
@@ -14,7 +14,6 @@
 class GameScreen : public GameObject
 {
 public:
-	FirstBusiness first;
 	
 	void Update();
 	void Render();
@@ -38,6 +37,7 @@ private:
 	float totalTime = 0;
 	Timer* timer;
 	Texture* backGround;
+	Texture* timeBoard;
 	Texture* scoreBoard;
 	Texture* grid;
 };

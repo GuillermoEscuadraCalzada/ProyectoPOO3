@@ -2,30 +2,13 @@
   GameScreen.cpp
 C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
 C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(44,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(210,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(290,1): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(268): message : while compiling class template member function 'GraphNode<T> *GraphList<T>::detectMouse(GraphNode<T> *,Vector2,bool)'
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(268): message :         with
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(268): message :         [
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(268): message :             T=Texture *
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(268): message :         ]
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message : see reference to function template instantiation 'GraphNode<T> *GraphList<T>::detectMouse(GraphNode<T> *,Vector2,bool)' being compiled
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         with
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         [
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :             T=Texture *
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         ]
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message : see reference to class template instantiation 'GraphList<T>' being compiled
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         with
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         [
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :             T=Texture *
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(56): message :         ]
   ScreenManager.cpp
   Proyecto_POO3.cpp
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(291,1): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(242,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
   Generating Code...
 C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Proyecto_POO3.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(170): warning C4715: 'GraphList<Texture *>::return_at_array': not all control paths return a value
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(324): warning C4715: 'GraphList<Texture *>::detectMouse': not all control paths return a value
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(365): warning C4715: 'GraphList<Texture *>::searchNode': not all control paths return a value
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(180): warning C4715: 'GraphList<Texture *>::return_at_array': not all control paths return a value
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(292): warning C4715: 'GraphList<Texture *>::detectMouse': not all control paths return a value
+C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(342): warning C4715: 'GraphList<Texture *>::searchNode': not all control paths return a value
   Proyecto_POO3.vcxproj -> C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Debug\Proyecto_POO3.exe
