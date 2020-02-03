@@ -1,9 +1,7 @@
 #ifndef SCREENMANAGER_H
 #define SCREENMANAGER_H
 
-
-#include "../../MenuInicio/GameScreen/GameScreen.h"
-
+#include "../GameScreen/GameScreen.h"
 class ScreenManager
 {
 	enum SCREENS {start, play};
@@ -16,6 +14,7 @@ class ScreenManager
 public:
 	static ScreenManager* getPTR();
 	static void Release();
+	void Init();
 	void Update();
 	void Render();
 

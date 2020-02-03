@@ -24,6 +24,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ProyectoPOO3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>GAME ENGINE</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,38 +155,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Contenedores\Lista\Lista.cpp" />
     <ClCompile Include="GameManager\AssetManager\AssetManager.cpp" />
     <ClCompile Include="GameManager\AudioManager\AudioManager.cpp" />
     <ClCompile Include="GameManager\GameManager\GameManager.cpp" />
     <ClCompile Include="GameManager\InputManager\InputManager.cpp" />
     <ClCompile Include="GameManager\Timer\Timer.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
+    <ClCompile Include="GameObject\Vector2.cpp" />
     <ClCompile Include="Graphics\AnimatedTextures\AnimatedTexture.cpp" />
     <ClCompile Include="Graphics\Graphics\Graphics.cpp" />
     <ClCompile Include="Graphics\Texture\Texture.cpp" />
     <ClCompile Include="MenuInicio\GameScreen\GameScreen.cpp" />
-    <ClCompile Include="MenuInicio\MenuInicio.cpp" />
     <ClCompile Include="MenuInicio\StartScreen\ScreenManager.cpp" />
     <ClCompile Include="MenuInicio\StartScreen\StartScreen.cpp" />
     <ClCompile Include="Proyecto_POO3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Contenedores\Grafo\Grafo.h" />
     <ClInclude Include="Contenedores\Lista\AssetList.h" />
-    <ClInclude Include="Contenedores\Lista\Lista.h" />
     <ClInclude Include="GameManager\AssetManager\AssetManager.h" />
     <ClInclude Include="GameManager\AudioManager\AudioManager.h" />
     <ClInclude Include="GameManager\GameManager\GameManager.h" />
     <ClInclude Include="GameManager\InputManager\InputManager.h" />
     <ClInclude Include="GameManager\Timer\Timer.h" />
     <ClInclude Include="GameObject\GameObject.h" />
-    <ClInclude Include="GameObject\Sons\FifthBSNS.h" />
-    <ClInclude Include="GameObject\Sons\firstBSNS.h" />
-    <ClInclude Include="GameObject\Sons\FourthBSNS.h" />
-    <ClInclude Include="GameObject\Sons\SecondBSNS.h" />
-    <ClInclude Include="GameObject\Sons\SixthBSNS.h" />
-    <ClInclude Include="GameObject\Sons\ThirdBSNS.h" />
     <ClInclude Include="GameObject\Vector2.h" />
     <ClInclude Include="Graphics\AnimatedTextures\AnimatedTexture.h" />
     <ClInclude Include="Graphics\Graphics\Graphics.h" />
@@ -194,7 +186,6 @@
     <ClInclude Include="Graphs\GraphList.h" />
     <ClInclude Include="Graphs\Stack\Stack.h" />
     <ClInclude Include="MenuInicio\GameScreen\GameScreen.h" />
-    <ClInclude Include="MenuInicio\MenuInicio.h" />
     <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h" />
     <ClInclude Include="MenuInicio\StartScreen\StartScreen.h" />
     <ClInclude Include="myVector.h" />

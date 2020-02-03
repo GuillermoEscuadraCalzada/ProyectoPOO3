@@ -2,7 +2,6 @@
 #define GAMEMANAGER_H
 
 #include "../../Graphics/Graphics/Graphics.h"
-#include "../../MenuInicio/MenuInicio.h"
 #include "../AudioManager/AudioManager.h"
 #include "../../GameObject/GameObject.h"
 #include "../../MenuInicio/StartScreen/ScreenManager.h"
@@ -35,7 +34,6 @@ private:
 	GameObject* gameOBJ;
 	Timer* timer;
 
-	MenuInicio* menuInicio;
 	bool quit;
 
 	Graphics* graphics;

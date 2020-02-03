@@ -4,8 +4,23 @@
 #include "../GameObject/Vector2.h"
 #include "Stack/Stack.h"
 
-using std::string; using std::exception; using std::cout; using std::endl;
+#include "../GameObject/Sons/firstBSNS.h"
+#include "../GameObject/Sons/SecondBSNS.h"
+#include "../GameObject/Sons/ThirdBSNS.h"
+#include "../GameObject/Sons/FourthBSNS.h"
+#include "../GameObject/Sons/FifthBSNS.h"
+#include "../GameObject/Sons/SixthBSNS.h"
 
+using std::string; using std::exception; using std::cout; using std::endl;
+enum num
+{
+	firstt = 1,
+	second = 2,
+	third = 3,
+	fourth = 4,
+	fifth = 5,
+	sixth = 6
+};
 
 //Clase nodo que se enocntrará dentro del grafo
 template<class T>
@@ -34,7 +49,7 @@ public:
 		index = 0;	//Indice es igual a cero
 		next = prev = top = bottom = father = nullptr;
 		list = nullptr;
-		nodeStack = new Stack<GraphNode*>();
+		nodeStack = new Stack<GraphNode<T>*>();
 		
 	};
 	
@@ -48,6 +63,7 @@ class GraphList
 {
 public:
 	int index2 = 0;
+	int counter = 0;
 
 	GraphNode<T>* first;
 	GraphNode<T>* nodeToFind;
@@ -66,9 +82,10 @@ public:
 	void bool_to_false(GraphNode<T>* first);
 	void addSons(GraphNode<T>* first);
 	void deleteImages(GraphNode<T>* first);
-	void Update(GraphNode<T>* first);
+	bool Update(GraphNode<T>* first);
 	void renderNode(GraphNode<T>* node);
 	void swap(GraphNode<T>* ghLeft, GraphNode<T>* ghRight);
+	void push_new_images(GraphNode<T>* first);
 	GraphNode<T>* graphArr[8][8];
 private:
 };
@@ -403,16 +420,12 @@ inline void GraphList<T>::addSons(GraphNode<T>* first)
 			//Mientras esté activa
 			while(it->searching)
 			{
-				//Pregunta si el superior es diferente de nulo y si no ha sido visitado
-				if(it->top != nullptr && !it->top->visited && it->top->value->textText == it->value->textText)
-				{
-					printf("Son el mismo\n");
-					if(it->father == nullptr)
-					{
-						if(it->nodeStack == nullptr)
-							it->nodeStack = new Stack<GraphNode<T>*>();
-						it->top->father = it;
-						it->nodeStack->push_front(it->top);
+				if(it->top != nullptr && !it->top->visited && it->top->value->textText == it->value->textText) {//Pregunta si el superior es diferente de nulo y si no ha sido visitado
+					if(it->father == nullptr){//Pregunta si el padre es igual a nulo
+						if(it->nodeStack == nullptr) //Si el stack es nulo
+							it->nodeStack = new Stack<GraphNode<T>*>();	//Crea uno nuevo
+						it->top->father = it;//El padre es el iterador
+						it->nodeStack->push_front(it->top); //Ingresa este elemento al stack
 					} else
 					{
 						if(it->father->nodeStack == nullptr)
@@ -422,83 +435,61 @@ inline void GraphList<T>::addSons(GraphNode<T>* first)
 					}
 					addSons(it->top);
 				}
-				
-				//Pregunta si el nodo de la derecha es diferente de nulo y si no ha sido visitado, además de preguntar si el texto es el mismo
-				else if(it->prev != nullptr && !it->prev->visited && it->prev->value->textText == it->value->textText)
-				{
-					printf("Son el mismo\n");
-					//Pregunta si el padre es nulo
-					if(it->father == nullptr)	
-					{
+				else if(it->prev != nullptr && !it->prev->visited && it->prev->value->textText == it->value->textText) {//Pregunta si el nodo de la derecha es diferente de nulo y si no ha sido visitado, además de preguntar si el texto es el mismo
+					if(it->father == nullptr){ //Pregunta si el padre es nulo
 						if(it->nodeStack == nullptr)
 							it->nodeStack = new Stack<GraphNode<T>*>();
 						it->prev->father = it; //El padre es el iterador
 						it->nodeStack->push_front(it->prev); //añade prev al stack del iterador
-					} else
-					{ //Si no es nulo
-						if(it->father->nodeStack == nullptr)
-							it->father->nodeStack = new Stack<GraphNode<T>*>();
+					} else { //Si no es nulo
+						if(it->father->nodeStack == nullptr)	//Pregunta si stack es nulo
+							it->father->nodeStack = new Stack<GraphNode<T>*>(); //Crea uno nuevo
 						it->prev->father = it->father;//El padre del iterador es el padre de prev
 						it->father->nodeStack->push_front(it->prev);	//Añade prev al stack del padre
 					}
 					addSons(it->prev);	//Recursividad en prev
 				}
 				//Pregunta si el nodo de la derecha es diferente de nulo y si no ha sido visitado, además de preguntar si el texto es el mismo
-				else if(it->next != nullptr && !it->next->visited && it->next->value->textText == it->value->textText)
-				{
-					printf("Son el mismo\n");
-					//Pregunta si el padre es nulo
-					if(it->father == nullptr)
-					{
-						if(it->nodeStack == nullptr)
+				else if(it->next != nullptr && !it->next->visited && it->next->value->textText == it->value->textText) {//Pregunta si el padre es nulo
+					if(it->father == nullptr) { //Pregunta si el padre es nulo
+						if(it->nodeStack == nullptr) //Pregunta si el stack es nulo
 							it->nodeStack = new Stack<GraphNode<T>*>();
 						it->next->father = it;	//El iterador es el padre
 						it->nodeStack->push_front(it->next); //Ingresa next al stack del iterador
-					} else
-					{ //Si no es nulo
-						if(it->father->nodeStack == nullptr)
-							it->father->nodeStack = new Stack<GraphNode<T>*>();
+					} else	{ //Si no es nulo
+						if(it->father->nodeStack == nullptr) //Pregunta si el stack es nulp
+							it->father->nodeStack = new Stack<GraphNode<T>*>(); //Crea un nuevo stack
 						it->next->father = it->father; //El padre es el padre del iterador
 						it->father->nodeStack->push_front(it->next);	//Ingresa este nodo al stack del padre
 					}
 					addSons(it->next); //Recursividad en este nodo
-				} 
-				
-				//Pregunta si el nodo inferior 
-				else if(it->bottom != nullptr && !it->bottom->visited && it->bottom->value->textText == it->value->textText)
-				{
-					if(it->father == nullptr)
-					{
+				}
+				else if(it->bottom != nullptr && !it->bottom->visited && it->bottom->value->textText == it->value->textText) { //Pregunta si el nodo inferior es nulo y si no ha sido visitado
+					if(it->father == nullptr) {	//Pregunta si el padre del iterador es igual a nulo
+						//Pregunta si el stack del iterador es igual a nulo
 						if(it->nodeStack == nullptr)
-							it->nodeStack = new Stack<GraphNode<T>*>();
-						it->bottom->father = it;
-						it->nodeStack->push_front(it->bottom);
-					} else
-					{
+							it->nodeStack = new Stack<GraphNode<T>*>(); //Crea un nuevo stack
+						it->bottom->father = it; //El padre es el iterador
+						it->nodeStack->push_front(it->bottom); //Ingresa el nodo inferior al stack
+					} else { //Si 
 						if(it->father->nodeStack == nullptr)
 							it->father->nodeStack = new Stack<GraphNode<T>*>();
 						it->bottom->father = it->father;
-						it->nodeStack->push_front(it->bottom);
+						it->father->nodeStack->push_front(it->bottom);
 					}
 					addSons(it->bottom);
-				} else 
-				{
-					if(it->father != nullptr)
-					{
-						if(it->father->searching)
-						{
+				} else  { //Si no funciona ningún caso, busca si el padre sigue buscando o si ya dejó de buscar
+					if(it->father != nullptr) { //Pregunta si el padre es nulo
+						if(it->father->searching) { //Pregunta si el padre sigue 
+							it->searching = !it->searching; //el iterador deja de buscar
+							return; //Regresa
+						} else 
 							it->searching = !it->searching;
-							return;
-						} else
-						{
-							it->searching = !it->searching;
-						}
-					} else
+						
+					} else //Si no tiene padre es porque este nodo es el padre
 						it->searching = !it->searching;
-
 				}
-
-			}
+			} 
 			if(it->next != nullptr)
 				it = it->next;
 			else if(it2 != nullptr)
@@ -509,103 +500,6 @@ inline void GraphList<T>::addSons(GraphNode<T>* first)
 				it = nullptr;
 		}
 
-		//while(it != nullptr)
-		//{
-		//	searching = true;
-		//	while(searching)
-		//	{
-		//		it->visited = true; //El iterador ya fue visitiado
-		//		if(!searching)
-		//			break;
-		//		//Se pregunta si next es diferente de nulo y si el identificador es igual al iterador actual
- 	//			if(it->next != nullptr && !it->next->visited && it->next->value->ID == it->value->ID)
-		//		{
-		//			//Si el padre es nulo, el padre del siguiente es el iterador
-		//			if(it->father == nullptr)
-		//			{
-		//				it->next->father = it;
-		//				it->nodeStack->push_front(it->next);	
-		//			} else
-		//			{ //Si el padre no es nulo
-		//				it->next->father = it->father; //El padre de next es el padre del iterador
-		//				it->father->nodeStack->push_front(it->next); //Ingresa el nodo al stack
-		//			}
-		//			destroy(it->next); //Recursividad de esta función
-		//		}
-		//		else if(it->bottom != nullptr && !it->bottom->visited && it->bottom->value->ID == it->value->ID)
-		//		{//Pregunta si el apuntador inferior es diferente de nulo y si el identificador es el mismo
-		//			if(it->father == nullptr)
-		//			{ //Si el padre es igual a nulo, el iterador es el padre del apuntador inferior
-		//				it->bottom->father = it;
-		//				it->nodeStack->push_front(it->bottom);	//Ingresa el nodo al stack
-		//			} else
-		//			{ //Si no es nulo
-		//				it->bottom->father = it->father; //El padre es el padre del iterador
-		//				it->father->nodeStack->push_front(it->bottom); //Ingresa el nod al stack del padre del iterador
-		//			}
-		//			destroy(it->bottom);	//Recursividad en este apuntador
-		//		} 
-		//		else if(it->top != nullptr && !it->top->visited && it->top->value->ID == it->value->ID)
-		//		{	//Pregunta si el iterador superior es diferente de nulo
-		//			if(it->father == nullptr)
-		//			{	//Si el padre del iterador es nulo
-		//				it->top->father = it; //El padre es el iterador 
-		//				it->nodeStack->push_front(it->top);	//Añade al stack del iterador
-		//			} else
-		//			{ //Si el padre es diferente de nulo
-		//				it->top->father = it->father;	//El padre es el padre del iterador
-		//				it->father->nodeStack->push_front(it->top); //Ingresa el iterador al stack del padre del iterador
-		//			}
-		//			destroy(it->top); //Recursividad con el iterador
-		//		}
-		//		else if(it->prev != nullptr  &&  !it->prev->visited && it->prev->value->ID == it->value->ID)
-		//		{
-		//			if(it->father == nullptr)
-		//			{
-		//				it->prev->father = it;
-		//				it->nodeStack->push_front(it->prev);
-		//			} else
-		//			{
-		//				it->prev->father = it->father;
-		//				it->father->nodeStack->push_front(it->prev);
-		//			}
-		//			destroy(it->prev);
-		//		}
-		//		else
-		//		{
-		//			searching = false;
-		//			if(it->father != nullptr)
-		//				return;
-		//		}
-		//	}
-		//	
-		//	if(it->father == nullptr)
-		//	{
-		//		if(it->next != nullptr)
-		//		{
-		//			it = it->next;
-		//		} else if(it2 != nullptr)
-		//		{
-		//			it = it2;
-		//		} else
-		//		{
-		//			it = nullptr;
-		//		}
-		//	} else
-		//	{
-		//		if(it->next != nullptr)
-		//		{
-		//			it = it->next;
-		//		} else if(it2 != nullptr)
-		//		{
-		//			it = it2;
-		//		} else
-		//		{
-		//			it = nullptr;
-		//		}
-		//	}
-		//	
-		//}
 
 	} catch(exception & e)
 	{
@@ -635,7 +529,7 @@ inline void GraphList<T>::deleteImages(GraphNode<T>* first)
 		while(it != nullptr)
 		{
 			//Pregunta si el stack del iterador es diferente de nulo y si el tamaño es mayor o igual a tes
-			if(it->nodeStack != nullptr && it->nodeStack->size >= 4)
+			if(it->nodeStack != nullptr && it->nodeStack->size >= 3)
 			{
 				delete it->value;	//Borra el valor actual del nodo
 				it->value = nullptr;	//Hazlo nulo
@@ -668,24 +562,21 @@ inline void GraphList<T>::deleteImages(GraphNode<T>* first)
 /*Función que hará que todas las imágenes caigan al momento de revisar si el apuntador superior es dferente de nulo
  *@param[GraphNode<T>* first] apuntador al nodo que se iterará*/
 template<class T>
-inline void GraphList<T>::Update(GraphNode<T>* first)
+inline bool GraphList<T>::Update(GraphNode<T>* first)
 {
-
 	try
 	{
 		GraphNode<T>* it = first;	//iterador en el nodo indicado
 		GraphNode<T>* it2 = nullptr; //Iterador que es nulo
+		if(it->bottom) //Si la parte inferior del iterador existe, el segundo iterador avanzará ahí
+			it2 = it->bottom; //it2 avanza al nodo inferior
+		//bool searching;
 
-		//Si la parte inferior del iterador existe, el segundo iterador avanzará ahí
-		if(it->bottom)
-			it2 = it->bottom; //
-
-		//Mientras el iterador no sea nulo
+		////Mientras el iterador no sea nulo
 		while(it)
 		{
-			//Pregunta si el iterador superior es diferente de nulo
 			if(!it->top)
-			{					//Si next existe
+			{ //Si next existe
 				if(it->next)
 					it = it->next; //Avanza al siguiente
 				else
@@ -695,15 +586,13 @@ inline void GraphList<T>::Update(GraphNode<T>* first)
 						Update(it2);
 						break;
 					} else//En caso contario, regresa
-						return;
+						return true;
 				}
-				
-			} else
-			{ //Si el nodo de arriba existe
 
-				//Pregunta si el valor actual es nulo y si el valor de arriba existe
+			} else
+			{ //Si el nodo de arriba existe				
 				if(!it->value && it->top->value)
-				{
+				{ //Pregunta si el valor actual es nulo y si el valor de arriba existe 
 					T val = it->top->value;	//Guarda un valor que es igual al valor del nodo superior
 					it->value = it->top->value;	//El valor del nodo actual es igual al del nodo superior
 					it->value->Position(Vector2(it->position.x + it->value->rect->w / 2, it->position.y + it->value->rect->h / 2));	//Positiona ahora el valor actual en la posición del nodo 
@@ -712,29 +601,34 @@ inline void GraphList<T>::Update(GraphNode<T>* first)
 					if(it->next) //Avanza al siguiente
 						it = it->next;
 					else
-					{	//Si no existe, avanza a la siguiente fila
+					{ //Si no existe, avanza a la siguiente fila
 						if(it2)
 						{
 							Update(it2);
 							break;
 						} else //Si la siguiente fila no existe, regresa
-							return;
+							return true;
 					}
 				} else if(it->value && it->top->value || it->value && !it->top->value || !it->value && !it->top->value)
 				{
 					it = it->next;
 				}
 			}
-		}
-	}
+		
 
-	 catch(exception & e)
-	{
-		cout << "Exception caught: " << e.what() << endl;
-	} catch(...)
-	{
-		cout << "Ups! It crashed!\n";
+		}
+
+		
+		
+
 	}
+  catch(exception & e)
+   {
+   	cout << "Exception caught: " << e.what() << endl;
+   } catch(...)
+   {
+   	cout << "Ups! It crashed!\n";
+   }
 }
 
 /*Esta función nos permite renderizar cualquier imagen dentro de los nodos en el arreglo de manera recursiva,
@@ -820,6 +714,97 @@ inline void GraphList<T>::swap(GraphNode<T>* ghLeft, GraphNode<T>* ghRight)
 		}
 
 
+	} catch(exception & e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	} catch(...)
+	{
+		cout << "Ups! Something crashed!\n";
+	}
+}
+
+/*Se añaden nuevas imágenes que irán cayendo constántemente cada vez que una imagen se destruya
+	@param[GraphNode<T>* first] nodo desde el que se iterará*/
+template<class T>
+inline void GraphList<T>::push_new_images(GraphNode<T>* first)
+{
+	try
+	{
+		GraphNode<T>* it = first;
+		GraphNode<T>* it2 = nullptr;
+		if(it->next) //Si la parte inferior del iterador existe, el segundo iterador avanzará ahí
+			it2 = it; //it2 avanza al nodo inferior
+		counter = 0;
+		/*Se crean todas las imágenes */
+		firstBSNS* firstB = new firstBSNS("FirstBSNS.png", 0, 0, 70, 70);
+		SecondBSNS* secondBSNS = new SecondBSNS("SecondBSNS.png", 0, 0, 70, 70);
+		ThirdBSNS* thirdBSNS = new ThirdBSNS("ThirdBSNS.png", 0, 0, 70, 70);
+		FourthBSNS* fourthBSNS = new FourthBSNS("FourthBSNS.png", 0, 0, 70, 70);
+		FifthBSNS* fifthBSNS = new FifthBSNS("FifthBSNS.png", 0, 0, 70, 70);
+		SixthBSNS* sixthBSNS = new SixthBSNS("SixthBSNS.png", 0, 0, 70, 70);
+
+		/*Itera hasta ser nulo*/
+		while(it) {
+			if(!it->value){ //Pregunta si el valor de este nodo es nulo 
+				while(it)
+				{
+					if(!it->value)
+					{ //Si es 
+						it = it->bottom;
+						counter++;
+					} else
+					{
+						it = it2;
+						break;
+					}
+
+				}
+				if(counter > 0) {
+					Texture** rect = new Texture * [counter];
+					for(int i = 0; i <= counter; i++) {
+						int random = rand() % 6 + 1;
+
+						switch(random){
+						case firstt:
+							rect[i] = firstB;
+							break;
+						case second:
+							rect[i] = secondBSNS;
+							break;
+						case third:
+							rect[i] = thirdBSNS;
+							break;
+						case fourth:
+							rect[i] = fourthBSNS;
+							break;
+						case fifth:
+							rect[i] = fifthBSNS;
+							break;
+						case sixth:
+							rect[i] = sixthBSNS;
+							break;
+						}
+
+						it->value = rect[i];
+						it->value->Position(Vector2(it->position.x + it->value->rect->w / 2, it->position.y + it->value->rect->h / 2));
+						if(!it->bottom->value)
+							it = it->bottom;
+						else
+						{
+							if(it2->next)
+								push_new_images(it2->next);
+							else
+							{
+								return;
+							}
+
+						}
+						
+					}
+				} 
+			}
+			it = it->next;	
+		}
 	} catch(exception & e)
 	{
 		cout << "Exception caught: " << e.what() << endl;

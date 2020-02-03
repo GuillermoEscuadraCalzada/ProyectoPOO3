@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\MenuInicio">
-      <UniqueIdentifier>{0fb9ec2f-074c-4383-a1ac-69fe76d36532}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Contenedores">
       <UniqueIdentifier>{8849fddb-9f2d-49ba-9a75-a231be998660}</UniqueIdentifier>
     </Filter>
@@ -27,12 +24,6 @@
     </Filter>
     <Filter Include="Header Files\Contenedores\myVector">
       <UniqueIdentifier>{9cdebf49-73be-4eff-9f35-c4f983febdc7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Contenedores\Grafo">
-      <UniqueIdentifier>{21b2d895-c863-4c26-a8e8-f6030d7e7711}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Contenedores\Grafo\Lista">
-      <UniqueIdentifier>{34a79a78-a9a5-4992-a0b5-bae43dc07826}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Graphics\Texture">
       <UniqueIdentifier>{b8234dd6-c225-415d-b8ed-fbf0ba05e09a}</UniqueIdentifier>
@@ -55,9 +46,6 @@
     <Filter Include="Header Files\Graphics\AnimatedTexture">
       <UniqueIdentifier>{228e7eb3-16d3-4e9c-846e-1f4c3bedd643}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Contenedores\Grafo\Lista\AssetList">
-      <UniqueIdentifier>{8e25b9c0-cde4-4fb2-96d1-c01e040e0972}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameManager\InputManager">
       <UniqueIdentifier>{f1e77bf1-8674-42cd-88c7-e172bc60a283}</UniqueIdentifier>
     </Filter>
@@ -67,20 +55,23 @@
     <Filter Include="Header Files\Game Object\Vector2">
       <UniqueIdentifier>{71fc6984-442f-41db-b79e-1a970a4b5be9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MenuInicio\ScreenManager">
-      <UniqueIdentifier>{d087413c-0879-4ea7-b26a-fca5c4cb92fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game Object\Sons">
-      <UniqueIdentifier>{e52aa9f0-b953-4e01-bf20-03c331348f7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\MenuInicio\GameScreen">
-      <UniqueIdentifier>{1f526243-9e45-4294-abd4-8f6fc2688b25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Graph">
       <UniqueIdentifier>{04bb668c-5568-4c8a-b23b-dea9017a39f6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Graph\Stack">
       <UniqueIdentifier>{1f663d75-72d9-4fef-aec8-9c3bba2abb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Contenedores\AssetList">
+      <UniqueIdentifier>{8e25b9c0-cde4-4fb2-96d1-c01e040e0972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameManager\ScreenManager">
+      <UniqueIdentifier>{d087413c-0879-4ea7-b26a-fca5c4cb92fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameScreen">
+      <UniqueIdentifier>{0fb9ec2f-074c-4383-a1ac-69fe76d36532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameScreen\GameManager">
+      <UniqueIdentifier>{afb877b4-76f0-4b77-b6eb-e5c565f00227}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -111,23 +102,20 @@
     <ClCompile Include="Graphics\Graphics\Graphics.cpp">
       <Filter>Header Files\Graphics\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Contenedores\Lista\Lista.cpp">
-      <Filter>Header Files\Contenedores\Grafo\Lista</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuInicio\MenuInicio.cpp">
-      <Filter>Header Files\MenuInicio</Filter>
-    </ClCompile>
     <ClCompile Include="GameManager\InputManager\InputManager.cpp">
       <Filter>Header Files\GameManager\InputManager</Filter>
     </ClCompile>
     <ClCompile Include="MenuInicio\StartScreen\StartScreen.cpp">
-      <Filter>Header Files\MenuInicio</Filter>
+      <Filter>Header Files\GameScreen</Filter>
     </ClCompile>
     <ClCompile Include="MenuInicio\StartScreen\ScreenManager.cpp">
-      <Filter>Header Files\MenuInicio\ScreenManager</Filter>
+      <Filter>Header Files\GameManager\ScreenManager</Filter>
     </ClCompile>
     <ClCompile Include="MenuInicio\GameScreen\GameScreen.cpp">
-      <Filter>Header Files\MenuInicio\GameScreen</Filter>
+      <Filter>Header Files\GameScreen\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject\Vector2.cpp">
+      <Filter>Header Files\Game Object\Vector2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,29 +149,17 @@
     <ClInclude Include="Graphics\Graphics\Graphics.h">
       <Filter>Header Files\Graphics\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Contenedores\Lista\Lista.h">
-      <Filter>Header Files\Contenedores\Grafo\Lista</Filter>
-    </ClInclude>
     <ClInclude Include="Contenedores\Lista\AssetList.h">
-      <Filter>Header Files\Contenedores\Grafo\Lista\AssetList</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuInicio\MenuInicio.h">
-      <Filter>Header Files\MenuInicio</Filter>
-    </ClInclude>
-    <ClInclude Include="Contenedores\Grafo\Grafo.h">
-      <Filter>Header Files\Contenedores\Grafo</Filter>
+      <Filter>Header Files\Contenedores\AssetList</Filter>
     </ClInclude>
     <ClInclude Include="GameManager\InputManager\InputManager.h">
       <Filter>Header Files\GameManager\InputManager</Filter>
     </ClInclude>
     <ClInclude Include="MenuInicio\StartScreen\StartScreen.h">
-      <Filter>Header Files\MenuInicio</Filter>
+      <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="MenuInicio\StartScreen\ScreenManager.h">
-      <Filter>Header Files\MenuInicio\ScreenManager</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuInicio\GameScreen\GameScreen.h">
-      <Filter>Header Files\MenuInicio\GameScreen</Filter>
+      <Filter>Header Files\GameManager\ScreenManager</Filter>
     </ClInclude>
     <ClInclude Include="Graphs\Graph.h">
       <Filter>Header Files\Graph</Filter>
@@ -191,26 +167,11 @@
     <ClInclude Include="Graphs\GraphList.h">
       <Filter>Header Files\Graph</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Sons\SecondBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Sons\ThirdBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Sons\FourthBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Sons\FifthBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject\Sons\SixthBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
-    </ClInclude>
     <ClInclude Include="Graphs\Stack\Stack.h">
       <Filter>Header Files\Graph\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\Sons\firstBSNS.h">
-      <Filter>Header Files\Game Object\Sons</Filter>
+    <ClInclude Include="MenuInicio\GameScreen\GameScreen.h">
+      <Filter>Header Files\GameScreen\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

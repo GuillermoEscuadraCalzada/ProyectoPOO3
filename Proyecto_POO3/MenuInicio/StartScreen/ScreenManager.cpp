@@ -7,9 +7,8 @@ ScreenManager::ScreenManager()
 {
 	input = InputManager::getPtr();	  //Apuntador de la clase Input
 	startScreen = new StartScreen();   //Se crea un objeto de la clase StartScreen
-	gameScreen = new GameScreen();	  //Se crea un objeto de la clase GameScreen
-	currentScreen = start;		     //El enum comienza con la variable start
-	//gameScreen->Init();
+	gameScreen = new GameScreen();	  //Se crea un objeto de la clase GameScree
+	currentScreen = play;		     //El enum comienza con la variable start
 
 }
 
@@ -42,6 +41,26 @@ void ScreenManager::Release()
 {
 	delete instance;
 	instance = nullptr;
+}
+
+void ScreenManager::Init()
+{
+	try
+	{
+		switch(currentScreen)
+		{
+
+		case play: {
+			gameScreen->Init();
+		}
+
+		default:
+			break;
+		}
+	} catch(exception & e)
+	{
+		cout << "Exception caught: " << e.what() << endl;
+	}
 }
 
 /*Actualiza los estados de juego que se encuentran en el enum*/

@@ -25,8 +25,15 @@ public:
 	void Active(bool active);
 	bool Active();
 	void Translate(Vector2 vec);
+	void SeekSB(Vector2 target);
+	float max_speed = 8;
+	float speed = 2;
+	void setMaxSpeed(float _maxSpeed)
+	{
+		max_speed = _maxSpeed;
+	}
 
-
+	Vector2 normalizeVector(Vector2 target);
 
 private:
 	Vector2 Pos;

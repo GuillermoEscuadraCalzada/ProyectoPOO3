@@ -17,6 +17,7 @@ GameManager::GameManager()
 	inputMGR = InputManager::getPtr();
 	audiMGR = AudioManager::getPTR();
 	screenMGR = ScreenManager::getPTR();
+	screenMGR->Init();
 	gameOBJ = new GameObject(100.0f, 300.0f);
 	
 }
@@ -40,9 +41,6 @@ GameManager::~GameManager()
 	InputManager::Release();
 	inputMGR = nullptr;
 
-	delete menuInicio;
-	menuInicio = nullptr;
-
 	Timer::Release();
 	timer = nullptr;
 
@@ -60,12 +58,14 @@ GameManager* GameManager::Initialize()
 	//Si el apuntador es nulo, crea la función, si no, no hagas nada. no se puede volver a crear
 	if(ptr == nullptr)
 		ptr = new GameManager();
+	
 	return ptr;	//Regresa el apuntador
 }
 
 /*Inicializa el update de muchas funciónes que apenas están iniciando*/
 void GameManager::EarlyUpdate()
 {
+	
 	inputMGR->Update();
 }
 
@@ -98,7 +98,6 @@ void GameManager::MainUpdate()
 		{
 			if(eventHandler.type == SDL_QUIT)	//Si se termina el programa, termina el loop
 				quit = true;
-
 		}
 
 		if(timer->DeltaTime() >= 1.0f / FrameRate)

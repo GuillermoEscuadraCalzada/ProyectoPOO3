@@ -1,14 +1,3 @@
-﻿  GameManager.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Proyecto_POO3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   GameScreen.cpp
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(44,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  ScreenManager.cpp
-  Proyecto_POO3.cpp
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\MenuInicio\GameScreen\GameScreen.cpp(242,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\GameManager\GameManager\GameManager.h(54,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
-  Generating Code...
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Proyecto_POO3.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(180): warning C4715: 'GraphList<Texture *>::return_at_array': not all control paths return a value
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(292): warning C4715: 'GraphList<Texture *>::detectMouse': not all control paths return a value
-C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Proyecto_POO3\Graphs\GraphList.h(342): warning C4715: 'GraphList<Texture *>::searchNode': not all control paths return a value
-  Proyecto_POO3.vcxproj -> C:\Users\Public\Documents\Visual Studio\POO3\Proyecto_POO3\Debug\Proyecto_POO3.exe
+  Proyecto_POO3.vcxproj -> C:\Users\Public\Documents\Visual Studio\Game Engine\Debug\GAME ENGINE.exe

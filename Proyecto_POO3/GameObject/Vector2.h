@@ -1,7 +1,7 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 #include <math.h>
-
+#include <iostream>
 
 struct Vector2
 {
@@ -12,6 +12,8 @@ struct Vector2
 	@param[x] posición en X
 	@param[y] posición en Y*/
 	Vector2(float _x = 0.0f, float _y = 0.0f) :x(_x), y(_y) {};
+	
+	int normalize(Vector2 target, Vector2 myPosition);
 	
 	/*Esta función permite realizar la operación de += 
 		@param[Vector2 rhs] el vector que modificará la posición del vector actual*/
@@ -29,6 +31,8 @@ struct Vector2
 		y += rhs.y;//El valor de y resta su valor actual más el del parámetro
 		return *this;
 	};
+
+	void normalize();
 };
 
 /*Operador que te permite sumar y actualizar el valor de 'x' y 'y'
